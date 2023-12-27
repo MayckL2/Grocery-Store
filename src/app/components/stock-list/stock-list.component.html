@@ -1,0 +1,10 @@
+<div *ngFor="let tenis of stock">
+    <div (click)="select(tenis)">
+        <p>Modelo: {{tenis.modelo}}</p>
+        <p>Preço: {{tenis.preco}}</p>
+        <img src={{tenis.img}} alt={{tenis.modelo}}>
+        <ul>
+            <li *ngFor="let tamanho of tenis.tamanhos">{{tamanho}}</li>
+        </ul>
+    </div>
+</div>

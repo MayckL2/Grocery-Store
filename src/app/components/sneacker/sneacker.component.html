@@ -1,0 +1,17 @@
+<p>{{choice.modelo}}</p>
+<img src={{choice.img}} alt={{choice.modelo}}>
+<p>{{choice.preco}} R$</p>
+<form action="">
+    <label for="size">Choose the size:</label>
+    <select [(ngModel)]="size" name="size" id="size">
+        <option *ngFor="let size of choice.tamanhos" [ngValue]="size">{{size}}</option>
+    </select>
+
+    <label for="quantity">Choose the quantity:</label>
+    <select [(ngModel)]="quantity" type="number" name="quantity" id="quantity">
+        <option *ngFor="let quantity of amount" [ngValue]="quantity">{{quantity}}</option>
+    </select>
+</form>
+<br>
+<button >Comprar</button>
+<button (click)="addCar(choice)">Adicionar ao carrinho</button>

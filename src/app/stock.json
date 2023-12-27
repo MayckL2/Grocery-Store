@@ -7,7 +7,8 @@
             40,
             41,
             42
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "jordan 3 - cinza",
@@ -19,7 +20,8 @@
             42,
             43,
             44
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "jordan 4 - branco",
@@ -27,7 +29,8 @@
         "img": "../assets/jordan4.jpg",
         "tamanhos": [
             40
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "jordan 4 - azul",
@@ -36,7 +39,8 @@
         "tamanhos": [
             44,
             45
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "jordan 4 - branco",
@@ -46,7 +50,8 @@
             39,
             41,
             42
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "jordan 4 - preto",
@@ -56,7 +61,8 @@
             35,
             40,
             42
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "jordan 7 - preto",
@@ -65,7 +71,8 @@
         "tamanhos": [
             45,
             46
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "air jordan - cinza",
@@ -75,7 +82,8 @@
             35,
             38,
             40
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "air jordan - marrom",
@@ -84,7 +92,8 @@
         "tamanhos": [
             45,
             46
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "air jordan - rosa",
@@ -93,7 +102,8 @@
         "tamanhos": [
             40,
             43
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "air jordan - verde",
@@ -105,7 +115,8 @@
             37,
             38,
             39
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "air jordan - vermelho",
@@ -114,7 +125,8 @@
         "tamanhos": [
             35,
             40
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "air jordan - preto",
@@ -122,7 +134,8 @@
         "img": "../assets/jordan-preto-branco.jpg",
         "tamanhos": [
             43
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "jordan - preto",
@@ -132,7 +145,8 @@
             43,
             44,
             45
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "air jordan - verde",
@@ -141,7 +155,8 @@
         "tamanhos": [
             41,
             43
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "air jordan - preto",
@@ -149,7 +164,8 @@
         "img": "../assets/jordan-preto-vermelho.jpg",
         "tamanhos": [
             39
-        ]
+        ],
+        "estoque": 10
     },
     {
         "modelo": "air jordan - roxo",
@@ -158,6 +174,7 @@
         "tamanhos": [
             45,
             46
-        ]
+        ],
+        "estoque": 10
     }
 ]
