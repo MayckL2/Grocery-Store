@@ -1,17 +1,44 @@
-<p>{{choice.modelo}}</p>
-<img src={{choice.img}} alt={{choice.modelo}}>
-<p>{{choice.preco}} R$</p>
-<form action="">
-    <label for="size">Choose the size:</label>
-    <select [(ngModel)]="size" name="size" id="size">
-        <option *ngFor="let size of choice.tamanhos" [ngValue]="size">{{size}}</option>
-    </select>
+<lucide-icon color="#FAD91E" size="35" name="arrow-left-from-line" routerLink=""
+    class="absolute top-6 left-6 hover:scale-110 transition-all cursor-pointer"></lucide-icon>
 
-    <label for="quantity">Choose the quantity:</label>
-    <select [(ngModel)]="quantity" type="number" name="quantity" id="quantity">
-        <option *ngFor="let quantity of amount" [ngValue]="quantity">{{quantity}}</option>
-    </select>
-</form>
-<br>
-<button >Comprar</button>
-<button (click)="addCar(choice)">Adicionar ao carrinho</button>
+<section class="p-8 flex flex-wrap">
+    <img class="w-full md:w-1/2 object-contain md:object-fill h-[65vh]" src={{choice.img}} alt={{choice.modelo}}>
+
+    <div class="flex flex-col items-end w-full md:w-1/2 justify-between">
+        <h2 class="text-4xl font-bold">{{choice.modelo}}</h2>
+
+        <div class="flex flex-col gap-4 items-end w-full">
+            <div class="flex gap-2 border-2 border-firstColor px-4 py-1 mt-4 md:mt-0">
+                <label for="quantity">Choose quantity:</label>
+                <select [(ngModel)]="quantity" type="number" name="quantity" id="quantity"
+                    class="bg-thirdColor cursor-pointer">
+                    <option *ngFor="let quantity of amount" [ngValue]="quantity">{{quantity}}</option>
+                </select>
+            </div>
+
+            <div class="flex flex-col gap-1">
+                <label for="size" class="font-bold text-xl text-right">Sizes</label>
+                <div class="flex flex-wrap gap-2">
+                    <button *ngFor="let size of choice.tamanhos" (click)="choseSize(size)"
+                        class="border-2 px-2 py-1 cursor-pointer {{size == selectSize ? selected : 'border-transparent'}}">{{size}}</button>
+                </div>
+            </div>
+
+            <button (click)="addCar(choice)"
+                class="flex gap-2 font-bold border-2 border-firstColor px-4 py-1 hover:bg-firstColor hover:text-thirdColor transition-all">
+                Add to Cart
+                <lucide-icon size="20" routerLink="shopCar" name="shopping-cart"></lucide-icon>
+            </button>
+
+            <div class="flex justify-between w-full pl-4 items-end md:items-center flex-col md:flex-row">
+                <div class="flex gap-2 mb-5 md:mb-0">
+                    <p class="text-2xl">{{choice.preco}} R$</p>
+                    <lucide-icon class="mt-2" name="tag"></lucide-icon>
+                </div>
+                <button
+                    class="bg-firstColor px-8 py-2 text-xl text-thirdColor font-bold border-2 border-transparent hover:bg-thirdColor hover:text-firstColor hover: border-firstColor transition-all">Comprar
+                    {{choice.modelo}}!</button>
+            </div>
+        </div>
+    </div>
+</section>

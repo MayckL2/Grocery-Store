@@ -7,7 +7,7 @@ import { StockListComponent } from './components/stock-list/stock-list.component
 import { SneackerComponent } from './components/sneacker/sneacker.component';
 import { ShopCarComponent } from './components/shop-car/shop-car.component';
 import { FormsModule } from '@angular/forms';
-import { LucideAngularModule, ShoppingCart } from 'lucide-angular';
+import { LucideAngularModule, ShoppingCart, ArrowLeftFromLine, Tag } from 'lucide-angular';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { LucideAngularModule, ShoppingCart } from 'lucide-angular';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    LucideAngularModule.pick({ ShoppingCart })
+    LucideAngularModule.pick({ ShoppingCart, ArrowLeftFromLine, Tag })
   ],
   providers: [],
   bootstrap: [AppComponent]

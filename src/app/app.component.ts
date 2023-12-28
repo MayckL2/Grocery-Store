@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import stock from './stock.json'
 
 @Component({
@@ -6,7 +6,16 @@ import stock from './stock.json'
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements AfterContentChecked {
   title = 'store-angular';
+  contCart: number = 0
 
+  constructor(){
+    this.contCart = JSON.parse(sessionStorage.getItem('car') || '[]').length
+    // console.log(this.contCart)
+  }
+
+  ngAfterContentChecked(): void { 
+    this.contCart = JSON.parse(sessionStorage.getItem('car') || '[]').length
+  }
 }

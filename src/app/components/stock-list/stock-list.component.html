@@ -1,10 +1,14 @@
-<div *ngFor="let tenis of stock">
-    <div (click)="select(tenis)">
-        <img src={{tenis.img}} alt={{tenis.modelo}}>
-        <p>Modelo: {{tenis.modelo}}</p>
-        <p>Preço: {{tenis.preco}}</p>
-        <ul>
-            <li *ngFor="let tamanho of tenis.tamanhos">{{tamanho}}</li>
-        </ul>
+<section class="flex flex-wrap gap-8 w-[80%] container mx-auto my-20 justify-center">
+    <div *ngFor="let tenis of stock">
+        <div (click)="select(tenis)" class="relative w-fit">
+            <img src="../../../assets/loading.gif" class="absolute z-10 w-full h-full {{loading ? 'block' : 'hidden'}}" alt="Loading">
+            <img src={{tenis.img}} alt={{tenis.modelo}}
+                class="opacity-50 w-60 h-60 hover:opacity-100 transition-all cursor-pointer">
+            <p class="absolute bg-thirdColor bottom-12 font-bold p-2">{{tenis.modelo}}</p>
+            <p class="absolute bg-thirdColor bottom-2 p-2">{{tenis.preco}} R$</p>
+            <ul class="absolute top-2 right-4 flex gap-4 flex-wrap">
+                <li *ngFor="let tamanho of tenis.tamanhos" class="font-bold">{{tamanho}}</li>
+            </ul>
+        </div>
     </div>
-</div>
+</section>

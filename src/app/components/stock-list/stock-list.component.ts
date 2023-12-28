@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, AfterContentChecked } from '@angular/core';
 import stock from '../../stock.json'
 import { Router } from '@angular/router';
 import { select } from '../../functions';
@@ -8,8 +8,9 @@ import { select } from '../../functions';
   templateUrl: './stock-list.component.html',
   styleUrl: './stock-list.component.scss'
 })
-export class StockListComponent {
+export class StockListComponent implements AfterContentChecked {
   stock: any = stock
+  loading: boolean= true
 
   constructor(private router: Router) {
   }
@@ -20,5 +21,9 @@ export class StockListComponent {
     select(choice)
     // redirecionamento
     this.router.navigate(['/sneacker']);
+  }
+
+  ngAfterContentChecked(): void{
+    this.loading = false
   }
 }

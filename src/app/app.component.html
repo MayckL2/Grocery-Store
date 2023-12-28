@@ -1,8 +1,22 @@
-<header>
-  <h1 class="" routerLink="">sneakers store</h1>
-  <a routerLink="shopCar">Shop-Car</a>
-  <lucide-icon name="shopping-cart"></lucide-icon>
+<header class="w-full flex justify-between px-8">
+  <p></p>
+
+  <img class="w-36 cursor-pointer" src="../assets/logo.png" routerLink="" alt="Logo Soles">
+
+  <div class="flex gap-8">
+    <div class="flex items-center mb-5 relative cursor-pointer">
+      <span class="bg-secondColor px-2 rounded-full text-center absolute top-9 left-4" *ngIf="contCart > 0">{{contCart}}</span>
+      <lucide-icon size="30" routerLink="shopCar" name="shopping-cart"></lucide-icon>
+    </div>
+
+    <img class="w-20 h-20 mt-5 border-4 border-transparent hover:border-firstColor transition-all rounded-full" src="../assets/avatar.png" alt="avatar">
+  </div>
 </header>
 
-<router-outlet></router-outlet>
-<!-- <app-stock-list [stock]="stock"></app-stock-list> -->
+<main class="min-h-screen">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="w-full flex justify-center items-center bg-black py-8">
+  <p>&copy; Mayck Luciano</p>
+</footer>
