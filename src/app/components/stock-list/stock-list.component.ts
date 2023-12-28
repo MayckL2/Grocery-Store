@@ -10,13 +10,15 @@ import { select } from '../../functions';
 })
 export class StockListComponent {
   stock: any = stock
-  
-  constructor(private router: Router){
 
+  constructor(private router: Router) {
   }
 
-  select(choice: any){
+  // Função que armazena seleção de item do usuario e o redireciona para a tela daquele item
+  select(choice: any) {
+    // armazenamento
     select(choice)
+    // redirecionamento
     this.router.navigate(['/sneacker']);
   }
 }

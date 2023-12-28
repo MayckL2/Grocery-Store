@@ -1,8 +1,8 @@
 <div *ngFor="let tenis of stock">
     <div (click)="select(tenis)">
+        <img src={{tenis.img}} alt={{tenis.modelo}}>
         <p>Modelo: {{tenis.modelo}}</p>
         <p>Preço: {{tenis.preco}}</p>
-        <img src={{tenis.img}} alt={{tenis.modelo}}>
         <ul>
             <li *ngFor="let tamanho of tenis.tamanhos">{{tamanho}}</li>
         </ul>

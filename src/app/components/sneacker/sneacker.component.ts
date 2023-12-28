@@ -14,18 +14,19 @@ export class SneackerComponent {
   size: number = 0
 
   constructor() {
+    // salva quantidade do item no estoque para ser renderizado como array
     for (let i = 0; i < this.estoque.estoque; i++) {
       this.amount.push(i + 1) 
     }
-    // console.log(this.amount)
+
     console.log(JSON.parse(this.choice))
+    // coleta escolha do usuario salva no sessionStorage para ser renderizado na tela
     this.choice = JSON.parse(this.choice)
+    // coleta primeiro tamanho do tenis para ser mostrado por padrão na tela
     this.size = this.choice.tamanhos[0]
   }
   
-  newCar: string = ''
-  storage: any = []
-
+  // Função para salvar escolha de item no carrinho
   addCar(choice: any){
     addCar(choice, this.quantity, this.size)
     // console.log(this.quantity) 

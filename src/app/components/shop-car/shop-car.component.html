@@ -1,9 +1,10 @@
+<p>Preço total: {{total}}</p>
 <button (click)="buyAll()" *ngIf="array.length > 0">Comprar Tudo!</button>
 <div *ngFor="let sneaker of shopCar" >
     <div (click)="select(sneaker.choice)">
+        <img src={{sneaker.choice.img}} alt={{sneaker.choice.modelo}}>
         <p>Modelo: {{sneaker.choice.modelo}}</p>
         <p>Preço: {{sneaker.choice.preco}}</p>
-        <img src={{sneaker.choice.img}} alt={{sneaker.choice.modelo}}>
         <p>Quantity: {{sneaker.amount}}</p>
         <p>Size: {{sneaker.size}}</p>
     </div>

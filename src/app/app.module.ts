@@ -7,6 +7,7 @@ import { StockListComponent } from './components/stock-list/stock-list.component
 import { SneackerComponent } from './components/sneacker/sneacker.component';
 import { ShopCarComponent } from './components/shop-car/shop-car.component';
 import { FormsModule } from '@angular/forms';
+import { LucideAngularModule, ShoppingCart } from 'lucide-angular';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    LucideAngularModule.pick({ ShoppingCart })
   ],
   providers: [],
   bootstrap: [AppComponent]
