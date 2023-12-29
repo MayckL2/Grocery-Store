@@ -1,15 +1,15 @@
 <header class="w-full flex justify-between px-8">
-  <p></p>
+  <!-- <p></p> -->
 
   <img class="w-36 cursor-pointer" src="../assets/logo.png" routerLink="" alt="Logo Soles">
 
-  <div class="flex gap-8">
-    <div class="flex items-center mb-5 relative cursor-pointer">
-      <span class="bg-secondColor px-2 rounded-full text-center absolute top-9 left-4" *ngIf="contCart > 0">{{contCart}}</span>
-      <lucide-icon size="30" routerLink="shopCar" name="shopping-cart"></lucide-icon>
+  <div class="flex gap-8 items-center">
+    <div routerLink="shopCar" class="flex items-center justify-center relative cursor-pointer border-2 border-transparent hover:border-firstColor transition-all rounded-full h-16 w-16">
+      <span class="bg-secondColor px-2 rounded-full text-center absolute top-[0.4rem] right-1" *ngIf="contCart > 0">{{contCart}}</span>
+      <lucide-icon size="30" name="shopping-cart"></lucide-icon>
     </div>
 
-    <img class="w-20 h-20 mt-5 border-4 border-transparent hover:border-firstColor transition-all rounded-full" src="../assets/avatar.png" alt="avatar">
+    <img class="w-20 h-20 border-4 border-transparent hover:border-firstColor transition-all rounded-full" src="../assets/avatar.png" alt="avatar">
   </div>
 </header>
 

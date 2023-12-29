@@ -35,7 +35,7 @@
                     <p class="text-2xl">{{choice.preco}} R$</p>
                     <lucide-icon class="mt-2" name="tag"></lucide-icon>
                 </div>
-                <button
+                <button (click)="buy()"
                     class="bg-firstColor px-8 py-2 text-xl text-thirdColor font-bold border-2 border-transparent hover:bg-thirdColor hover:text-firstColor hover: border-firstColor transition-all">Comprar
                     {{choice.modelo}}!</button>
             </div>

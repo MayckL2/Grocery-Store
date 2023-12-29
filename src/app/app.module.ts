@@ -7,7 +7,8 @@ import { StockListComponent } from './components/stock-list/stock-list.component
 import { SneackerComponent } from './components/sneacker/sneacker.component';
 import { ShopCarComponent } from './components/shop-car/shop-car.component';
 import { FormsModule } from '@angular/forms';
-import { LucideAngularModule, ShoppingCart, ArrowLeftFromLine, Tag } from 'lucide-angular';
+import { LucideAngularModule, ShoppingCart, ArrowLeftFromLine, Tag, Search } from 'lucide-angular';
+import Swal from 'sweetalert2'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { LucideAngularModule, ShoppingCart, ArrowLeftFromLine, Tag } from 'lucid
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    LucideAngularModule.pick({ ShoppingCart, ArrowLeftFromLine, Tag })
+    LucideAngularModule.pick({ ShoppingCart, ArrowLeftFromLine, Tag, Search })
   ],
   providers: [],
   bootstrap: [AppComponent]

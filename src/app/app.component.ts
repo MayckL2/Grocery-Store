@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import stock from './stock.json'
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-root',

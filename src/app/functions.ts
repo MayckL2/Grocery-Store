@@ -9,12 +9,11 @@ export function addCar(choice: any, amount: number, size: number) {
         newCar.push({ choice: choice, amount: amount, size: size })
         sessionStorage.setItem('car', JSON.stringify(newCar))
     }
-    alert(`${choice.modelo} foi adicionado no carrinho`)
+    // alert(`${choice.modelo} foi adicionado no carrinho`)
     console.log(storage)
 }
 
 export function buyAll() {
-    alert('Voce comprou todos os produtos do carrinho!')
     sessionStorage.removeItem('car')
 }
 

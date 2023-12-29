@@ -2,6 +2,7 @@ import { Component, AfterContentChecked } from '@angular/core';
 import stock from '../../stock.json'
 import { Router } from '@angular/router';
 import { buyAll, select } from '../../functions';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-shop-car',
@@ -40,8 +41,22 @@ export class ShopCarComponent implements AfterContentChecked {
   buyAll(){
     // compra
     buyAll()
+    // alerta
+    Swal.fire({
+      icon: 'success',
+      title: `Você comprou todos os itens do carrinho!`,
+      toast: true,
+      position: 'top-right',
+      iconColor: '#231F20',
+      color: '#231F20',
+      background: '#FAD91E',
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+    })
     // recarrega a pagina
-    location.reload()
+    this.shopCar = []
+    this.total = 0
   }
 
   ngAfterContentChecked(): void{

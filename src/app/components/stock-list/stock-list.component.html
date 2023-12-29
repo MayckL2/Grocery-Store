@@ -1,4 +1,11 @@
+
 <section class="flex flex-wrap gap-8 w-[80%] container mx-auto my-20 justify-center">
+    <div class="w-full flex justify-end container mx-auto relative">
+        <input type="text" [(ngModel)]="search" (ngModelChange)="ChangeSearch()"
+        class="bg-thirdColor border-2 border-firstColor w-full md:w-1/4 h-10 px-2 focus:outline-none focus:w-full md:focus:w-1/3 transition-all" placeholder="Pesquise seu tenis aqui..."/>
+        <lucide-icon class="absolute top-1 right-1" name="search"></lucide-icon>
+    </div>
+
     <div *ngFor="let tenis of stock">
         <div (click)="select(tenis)" class="relative w-fit">
             <img src="../../../assets/loading.gif" class="absolute z-10 w-full h-full {{loading ? 'block' : 'hidden'}}" alt="Loading">
@@ -10,5 +17,6 @@
                 <li *ngFor="let tamanho of tenis.tamanhos" class="font-bold">{{tamanho}}</li>
             </ul>
         </div>
+        <!-- <p *ngIf="this.search == ''"></p> -->
     </div>
 </section>
