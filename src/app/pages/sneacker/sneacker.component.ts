@@ -26,6 +26,8 @@ export class SneackerComponent {
     this.choice = JSON.parse(this.choice)
     // coleta primeiro tamanho do tenis para ser mostrado por padrão na tela
     this.selectSize = this.choice.tamanhos[0]
+
+    window.scrollTo(0, 0)
   }
 
   // Função para salvar escolha de item no carrinho

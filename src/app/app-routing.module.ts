@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { StockListComponent } from './components/stock-list/stock-list.component';
-import { SneackerComponent } from './components/sneacker/sneacker.component';
-import { ShopCarComponent } from './components/shop-car/shop-car.component';
+import { StockListComponent } from './pages/stock-list/stock-list.component';
+import { SneackerComponent } from './pages/sneacker/sneacker.component';
+import { ShopCarComponent } from './pages/shop-car/shop-car.component';
 
 const routes: Routes = [
   { path: '', component: StockListComponent },

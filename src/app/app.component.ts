@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import stock from './stock.json'
 import Swal from 'sweetalert2'
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,6 @@ export class AppComponent implements AfterContentChecked {
 
   constructor(){
     this.contCart = JSON.parse(sessionStorage.getItem('car') || '[]').length
-    // console.log(this.contCart)
   }
 
   ngAfterContentChecked(): void { 
