@@ -1,22 +1,29 @@
-import { Component, OnInit, AfterContentChecked } from '@angular/core';
-import stock from './stock.json'
-import Swal from 'sweetalert2'
-import { RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { TestComponentComponent } from './test-component/test-component.component';
+import { TestComponent } from './test-component';
 
 @Component({
   selector: 'app-root',
+  imports: [RouterOutlet, TestComponentComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
-export class AppComponent implements AfterContentChecked {
-  title = 'store-angular';
-  contCart: number = 0
+export class AppComponent {
+  title = 'angular-store';
 
-  constructor(){
-    this.contCart = JSON.parse(sessionStorage.getItem('car') || '[]').length
-  }
+  readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
 
-  ngAfterContentChecked(): void { 
-    this.contCart = JSON.parse(sessionStorage.getItem('car') || '[]').length
-  }
+  testList: TestComponent[] = [
+    {
+      id: 0,
+      name: 'Acme Fresh Start Housing',
+      city: 'Chicago',
+      state: 'IL',
+      photo: `${this.baseUrl}/bernard-hermant-CLKGGwIBTaY-unsplash.jpg`,
+      availableUnits: 4,
+      wifi: true,
+      laundry: true,
+    },
+  ];
 }
