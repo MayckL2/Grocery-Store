@@ -1,29 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TestComponentComponent } from './test-component/test-component.component';
 import { TestComponent } from './test-component';
+import { BehaviorSubject } from 'rxjs';
+import { CustomPipePipe } from "./pipes/custom-pipe.pipe";
+import { FormComponent } from './components/form/form.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TestComponentComponent],
+  imports: [CustomPipePipe, FormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'angular-store';
+  title = signal('angular-store');
 
-  readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
+  constructor(){
+    // EXEMPLO DO USO DE SIGNAL
+    // console.log(this.title())
+    this.title.set('store-angular')
+    // console.log(`mudou o signal: ${this.title()}`)
 
-  testList: TestComponent[] = [
-    {
-      id: 0,
-      name: 'Acme Fresh Start Housing',
-      city: 'Chicago',
-      state: 'IL',
-      photo: `${this.baseUrl}/bernard-hermant-CLKGGwIBTaY-unsplash.jpg`,
-      availableUnits: 4,
-      wifi: true,
-      laundry: true,
-    },
-  ];
+    const firstNameCapitalized = computed(() => this.title().toUpperCase());
+
+    // console.log(firstNameCapitalized()); // MORGAN
+  }
+
+  names: string[] = ['juvi', 'ana', 'banana', 'sapucaia']
+  namesCopy: string[] = this.names
 }
