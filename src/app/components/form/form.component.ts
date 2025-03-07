@@ -9,7 +9,17 @@ import { FormGroup, FormControl, ReactiveFormsModule, FormBuilder, Validators, A
   styleUrl: './form.component.scss'
 })
 export class FormComponent {
+  // Instanciando formgroup
   loginForm: FormGroup;
+
+  // Configurando formbuild
+  // Definindo os campos necessarios e os validators de cada um
+  constructor(private formBuilder: FormBuilder) {
+    this.loginForm = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    });
+  }
 
   signIn(){
     console.log(this.loginForm.value);
@@ -20,11 +30,5 @@ export class FormComponent {
     // console.log(this.loginForm.controls['password'].errors);
   }
   
-  constructor(private formBuilder: FormBuilder) {
-    this.loginForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
-    });
-  }
   
 }

@@ -4,15 +4,19 @@ import { TestComponent } from './test-component';
 import { BehaviorSubject } from 'rxjs';
 import { CustomPipePipe } from "./pipes/custom-pipe.pipe";
 import { FormComponent } from './components/form/form.component';
+import { TestComponentComponent } from "./components/test-component/test-component.component";
+import { ObservablesComponent } from "./components/observables/observables.component";
+import { ExhaustmapComponent } from "./components/exhaustmap/exhaustmap.component";
 
 @Component({
   selector: 'app-root',
-  imports: [CustomPipePipe, FormComponent],
+  imports: [CustomPipePipe, FormComponent, TestComponentComponent, ObservablesComponent, ExhaustmapComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = signal('angular-store');
+  showTest: boolean = true;
 
   constructor(){
     // EXEMPLO DO USO DE SIGNAL
@@ -27,4 +31,9 @@ export class AppComponent {
 
   names: string[] = ['juvi', 'ana', 'banana', 'sapucaia']
   namesCopy: string[] = this.names
+
+  toggleTest(){
+    console.log("funfou")
+    this.showTest = !this.showTest
+  }
 }
