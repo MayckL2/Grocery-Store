@@ -10,7 +10,7 @@ import { ExhaustmapComponent } from "./components/exhaustmap/exhaustmap.componen
 
 @Component({
   selector: 'app-root',
-  imports: [CustomPipePipe, FormComponent, TestComponentComponent, ObservablesComponent, ExhaustmapComponent],
+  imports: [ RouterOutlet, CustomPipePipe, FormComponent, TestComponentComponent, ObservablesComponent, ExhaustmapComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

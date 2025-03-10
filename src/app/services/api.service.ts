@@ -1,22 +1,25 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpClientModule, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Injectable, NgModule } from '@angular/core';
 import axios from 'axios';
-import { Observable } from 'rxjs';
+import { Observable, shareReplay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class APIService {
   baseUrl = "https://simple-grocery-store-api.glitch.me/"
+  data: any
 
   constructor(private http: HttpClient){
-    http.get(this.baseUrl).subscribe(config => { 
-      console.log(config)
+    this.http.get(this.baseUrl).subscribe(config => { 
+      console.log("retorno api:", config)
+      this.data = config
     })
   }
 
   getAll(): Observable<any[]>{
     return this.http.get<any>(this.baseUrl)
+    // return this.data;
   }
 
   static apiData() {

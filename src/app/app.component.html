@@ -1,23 +1,19 @@
 <main>
-  <h1>hello world</h1>
-
-  <p>array sem pipe: {{ namesCopy }}</p>
-  <!-- Pipe ordena o array alfabeticamente -->
-  <p>array com pipe: {{ names | customPipe }}</p>
-
-  <!-- Reactive Form -->
-  <app-form></app-form>
-
-  <!-- @if(showTest){
-    <app-test-component></app-test-component>
-    <app-observables></app-observables>
-  } -->
-  
-  <!-- <app-test-component></app-test-component> -->
-
-  <!-- <button (click)="toggleTest()">{{ showTest ? 'Esconde' : 'Mostra' }}</button> -->
+  <header>
+    <a href="#">
+      <img src="../assets/Freshcart Logo.png" alt="Freshcart logo">
+    </a>
+  </header>
 
   <hr>
 
-  <app-exhaustmap></app-exhaustmap>
+  <router-outlet/>
+
+  <hr>
+  
+  <footer>
+    <a href="#">
+      <img src="../assets/Freshcart Logo.png" alt="Freshcart logo">
+    </a>
+  </footer>
 </main>
