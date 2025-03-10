@@ -7,9 +7,4 @@ export const routes: Routes = [
     {
         path: "", component: HomeComponent
     },
-    // Teste de lazy load, não funcionou
-    // {
-    //     path: "lazy", loadComponent: ()=> 
-    //         import('./components/form/form.component').then(m => m.FormComponent)
-    // }
 ];
