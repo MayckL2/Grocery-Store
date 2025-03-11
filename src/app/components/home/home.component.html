@@ -1,7 +1,17 @@
 <div>
     <p>home works!</p>
 
-    <span> {{ apiData | json }} </span>
+    <!-- <span> {{ apiData | json  }} </span> -->
     
     <!-- <app-test-component/> -->
+
+    <div *ngFor="let product of apiData">
+        <span>{{product.id}}</span><br>
+        <strong>{{product.name}}</strong>
+        <p>Category: {{product.category}}</p>
+        <span>{{product.inStock ? "disponivel" : "indisponivel"}}</span>
+
+        <hr>
+    </div>
+
 </div>

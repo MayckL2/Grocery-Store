@@ -2,34 +2,23 @@ import { HttpClient, HttpClientModule, HttpHeaders, HttpParams } from '@angular/
 import { Injectable, NgModule } from '@angular/core';
 import axios from 'axios';
 import { Observable, shareReplay } from 'rxjs';
+import { IProduct } from '../models/IProduct';
 
 @Injectable({
   providedIn: 'root',
 })
 export class APIService {
   baseUrl = "https://simple-grocery-store-api.glitch.me/"
-  data: any
 
   constructor(private http: HttpClient){
-    this.http.get(this.baseUrl).subscribe(config => { 
-      console.log("retorno api:", config)
-      this.data = config
-    })
-  }
-
-  getAll(): Observable<any[]>{
-    return this.http.get<any>(this.baseUrl)
-    // return this.data;
-  }
-
-  static apiData() {
-    // axios(this.baseUrl,{
-    //   method: "get",
-    //   headers: {
-    //     "Access-Control-Allow-Origin": "*",
-    //     'Content-Type': 'application/json'
-    // }
+    // this.http.get(this.baseUrl).subscribe(config => { 
+    //   console.log("retorno api:", config)
     // })
-    // .then(e => console.log(e))
   }
+
+  // Retorna todos os produtos
+  getAll(): Observable<IProduct[]>{
+    return this.http.get<IProduct[]>(this.baseUrl + "products")
+  }
+
 }
