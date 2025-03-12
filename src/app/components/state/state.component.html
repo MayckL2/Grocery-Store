@@ -1,0 +1,8 @@
+@for (livro of livros$ | async; track $index) {
+<p> {{ livro.nome }} </p>
+}
+
+<div>
+    <input type="text" [(ngModel)]="livroInput">
+    <button (click)="adicionar()"> Adicionar </button>
+</div>

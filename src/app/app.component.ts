@@ -7,10 +7,11 @@ import { FormComponent } from './components/form/form.component';
 import { TestComponentComponent } from "./components/test-component/test-component.component";
 import { ObservablesComponent } from "./components/observables/observables.component";
 import { ExhaustmapComponent } from "./components/exhaustmap/exhaustmap.component";
+import { StateComponent } from "./components/state/state.component";
 
 @Component({
   selector: 'app-root',
-  imports: [CustomPipePipe, FormComponent, TestComponentComponent, ObservablesComponent, ExhaustmapComponent],
+  imports: [CustomPipePipe, FormComponent, TestComponentComponent, ObservablesComponent, ExhaustmapComponent, StateComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
