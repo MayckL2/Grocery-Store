@@ -1,5 +1,5 @@
 <p>session-category works!</p>
 
-<div *ngFor="let product of products">
-    <app-product [productProp]="product"/>
+<div class="flex gap-4 mx-16 p-4 overflow-hidden">
+    <app-product *ngFor="let product of products" [productProp]="product"/>
 </div>
