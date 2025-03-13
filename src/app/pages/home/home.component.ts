@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { APIService } from '../../services/api.service';
 import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
-import { TestComponentComponent } from "../test-component/test-component.component";
+import { ProductComponent } from "../../components/product/product.component";
+import { SessionCategoryComponent } from "../../components/session-category/session-category.component";
 
 @Component({
   selector: 'app-home',
-  imports: [JsonPipe, AsyncPipe, TestComponentComponent, CommonModule],
+  imports: [CommonModule, ProductComponent, SessionCategoryComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

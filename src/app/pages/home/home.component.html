@@ -1,0 +1,12 @@
+<div>
+    <p>home works!</p>
+
+    <div *ngFor="let product of apiData">
+        <app-product [productProp]="product"/>
+    </div>
+
+    <section class="px-8">
+        <app-session-category [products]="apiData"></app-session-category>
+    </section>
+
+</div>

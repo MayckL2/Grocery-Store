@@ -3,4 +3,5 @@ export interface IProduct {
     category: string,
     name: string,
     inStock: boolean
+    promotion: undefined | number
 }
