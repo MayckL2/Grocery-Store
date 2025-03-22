@@ -3,10 +3,11 @@ import { APIService } from '../../services/api.service';
 import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
 import { ProductComponent } from "../../components/product/product.component";
 import { SessionCategoryComponent } from "../../components/session-category/session-category.component";
+import { HeaderComponent } from "../../components/header/header.component";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, ProductComponent, SessionCategoryComponent],
+  imports: [CommonModule, SessionCategoryComponent, HeaderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
