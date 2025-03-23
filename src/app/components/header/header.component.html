@@ -1,14 +1,17 @@
 <header class="grid grid-cols-1 grid-rows-2 gap-8 md:px-20 px-8 py-6">
     <div class="flex justify-between items-start">
+        <!-- LOGO -->
         <a href="#">
             <img class="w-40" src="FreshcartLogo.png" alt="Freshcart Logo">
         </a>
 
+        <!-- SEARCH INPUT -->
         <div class="relative bg-stone-100 px-8 py-2 rounded">
             <i class="pi pi-search absolute left-2 top-[0.6em] text-green-500"></i>
             <input class="outline-none" type="text" placeholder="Search essentials, groceries and more...">
         </div>
         
+        <!-- LOGIN AND CART -->
         <div class="flex gap-2">
             <button class="flex place-items-center gap-2">
                 <i class="pi pi-user text-green-500"></i>
@@ -24,8 +27,9 @@
         </div>
     </div>
 
+    <!-- CATEGORY SECTION -->
     <div>
         
-        <p>bucado de categoria...</p>
+        <app-category name="Fruits" [options]="array"></app-category>
     </div>
 </header>
