@@ -1,0 +1,9 @@
+<div class="card">
+    <p-carousel [value]="products" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
+        <ng-template let-product #item>
+            <div class="border border-surface rounded-border m-2 p-4">
+                <p>{{product.name}}</p>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>

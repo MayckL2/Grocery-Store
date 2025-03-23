@@ -8,10 +8,11 @@ import { TestComponentComponent } from "./components/test-component/test-compone
 import { ObservablesComponent } from "./components/observables/observables.component";
 import { ExhaustmapComponent } from "./components/exhaustmap/exhaustmap.component";
 import { HeaderComponent } from "./components/header/header.component";
+import { InfoComponent } from "./components/info/info.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent],
+  imports: [RouterOutlet, HeaderComponent, InfoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
