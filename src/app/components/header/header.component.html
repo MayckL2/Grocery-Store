@@ -1,22 +1,31 @@
 <header class="grid grid-cols-1 grid-rows-2 gap-8 md:px-20 px-8 py-6">
-    <div class="flex justify-between">
+    <div class="flex justify-between items-start">
         <a href="#">
-            <img  class="w-40" src="FreshcartLogo.png" alt="Freshcart Logo">
+            <img class="w-40" src="FreshcartLogo.png" alt="Freshcart Logo">
         </a>
 
-        <input type="text" placeholder="Search essentials, groceries and more...">
-        <!-- <p-floatlabel variant="in">
-            <input pInputText id="in_label" [(ngModel)]="value" autocomplete="off" />
-            <label  class="bg-green-100" for="in_label">Search essentials, groceries and more...</label>
-        </p-floatlabel> -->
-        <!-- <input type="text" pInputText [(ngModel)]="value" placeholder="Search essentials, groceries and more..."/> -->
+        <div class="relative bg-stone-100 px-8 py-2 rounded">
+            <i class="pi pi-search absolute left-2 top-[0.6em] text-green-500"></i>
+            <input class="outline-none" type="text" placeholder="Search essentials, groceries and more...">
+        </div>
+        
+        <div class="flex gap-2">
+            <button class="flex place-items-center gap-2">
+                <i class="pi pi-user text-green-500"></i>
+                <p>Login</p>
+            </button>
 
-        <div>
-            <p>Login | Cart</p>
+            <span class="text-stone-500">|</span>
+
+            <button class="flex place-items-center gap-2">
+                <i class="pi pi-shopping-cart text-green-500"></i>
+                <p>Cart</p>
+            </button>
         </div>
     </div>
 
     <div>
+        
         <p>bucado de categoria...</p>
     </div>
 </header>
