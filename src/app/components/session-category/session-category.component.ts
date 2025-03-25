@@ -16,7 +16,6 @@ export class SessionCategoryComponent implements OnInit {
   @Input() greenText?: string
 
   ngOnInit(): void {
-    // this.txt = this.txt.split(" ")
-    // console.log(this.txt)
+    console.log(this.products)
   }
 }

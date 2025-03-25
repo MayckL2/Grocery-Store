@@ -1,6 +1,7 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { ObservableService } from '../../services/observable/observable.service';
+import { ApiService } from '../../services/api/api.service';
+import { IProduct } from '../../models/IProduct';
 
 @Component({
   selector: 'app-observables',
@@ -10,13 +11,13 @@ import { ObservableService } from '../../services/observable/observable.service'
 })
 export class ObservablesComponent implements OnInit, OnDestroy{
   // Nova forma de instanciar um service com signal
-  observableService = inject(ObservableService);
+  observableService = inject(ApiService);
 
   qtdCarrinho$ = this.observableService.obterQuantidadeCarrinho();
   // Variavel para adiministrar os inscritos no observable
   subs = new Subscription();
 
-  adicionarProduto(produto: string){
+  adicionarProduto(produto: IProduct){
     this.observableService.adicionarProduto(produto);
     console.log(this.qtdCarrinho$);
   }

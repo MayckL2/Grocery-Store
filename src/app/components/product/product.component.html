@@ -1,9 +1,13 @@
-<div class="grid grid-rows-4 grid-cols-3 gap-2 w-60 h-60 p-4 rounded-xl outline-2 outline-neutral-500">
-    <div class="col-span-3 row-span-3 text-center">Imagem em desenvolvimento...</div>
-    <strong class="col-span-3 text-md font-bold">{{productProp.name}}</strong>
+<div class="grid grid-rows-4 grid-cols-3 gap-2 w-60 h-60 p-4 rounded-xl bg-green-50 relative">
+    <span *ngIf="haveDiscount" class="absolute top-2 right-2">{{haveDiscount}}</span>
+    <span *ngIf="avaliable == false" class="absolute top-2 left-2">ZERADO PAPAI...</span>
+    <div class="col-span-3 row-span-3 flex justify-center">
+        <img class="" src="{{productProp.image}}" alt="{{productProp.name}}">
+    </div>
+    <strong class="col-span-3 text-md font-bold capitalize">{{productProp.name}}</strong>
     <div class="flex justify-between  col-span-3">
         <!-- adicionar pipe currency -->
-        <span>{{ 5 }}</span>
+        <span>{{ productProp.price | currency }}</span>
         <button class="w-fit px-[1.5em] py-[0.2em] outline outline-lime-500/50 rounded-lg text-sm text-lime-500">ADD</button>
     </div>
 </div>

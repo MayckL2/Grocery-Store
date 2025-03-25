@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 
 interface Product {
@@ -13,37 +13,32 @@ interface Product {
   styleUrl: './carousel.component.scss',
 })
 export class CarouselComponent implements OnInit {
-  products: Product[] = [
-    {name: "arroz", price: 5},
-    {name: "feijão", price: 6},
-    {name: "cafe", price: 10},
-    {name: "arroz", price: 5},
-    {name: "feijão", price: 6},
-    {name: "cafe", price: 10},
-    {name: "arroz", price: 5},
-    {name: "feijão", price: 6},
-    {name: "cafe", price: 10}
-  ]
-
+  @Input() products: Product[] = [];
+  carouselProducts: Product[] = [];
   responsiveOptions: any[] | undefined;
 
+  filterProducts(){
+    this.carouselProducts = this.products;
+    // console.log(this.carouselProducts)
+  }
 
   ngOnInit() {
+    this.filterProducts();
 
     this.responsiveOptions = [
       {
         breakpoint: '1400px',
-        numVisible: 2,
+        numVisible: 1,
         numScroll: 1,
       },
       {
         breakpoint: '1199px',
-        numVisible: 3,
+        numVisible: 1,
         numScroll: 1,
       },
       {
         breakpoint: '767px',
-        numVisible: 2,
+        numVisible: 1,
         numScroll: 1,
       },
       {

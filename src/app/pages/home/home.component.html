@@ -1,8 +1,10 @@
 <div>
-    <app-carousel></app-carousel>
+    <app-carousel [products]="products"></app-carousel>
     
     <section>
-        <app-session-category text="Shop From" greenText="Top Categories" [products]="apiData"></app-session-category>
+        <app-session-category text="Shop From" greenText="Top Categories" [products]="products"></app-session-category>
     </section>
+
+    {{qtdCarrinho$ | async }}
 
 </div>

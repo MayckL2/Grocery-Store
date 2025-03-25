@@ -4,7 +4,6 @@ import { TestComponent } from './test-component';
 import { BehaviorSubject } from 'rxjs';
 import { CustomPipePipe } from "./pipes/custom-pipe.pipe";
 import { FormComponent } from './components/form/form.component';
-import { TestComponentComponent } from "./components/test-component/test-component.component";
 import { ObservablesComponent } from "./components/observables/observables.component";
 import { ExhaustmapComponent } from "./components/exhaustmap/exhaustmap.component";
 import { HeaderComponent } from "./components/header/header.component";
