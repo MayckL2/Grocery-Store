@@ -1,0 +1,183 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "coffe",
+            "price": 20,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 0,
+            "category": "fruits"
+        },
+        {
+            "id": 2,
+            "name": "rice",
+            "price": 30,
+            "discount": 5,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        },
+        {
+            "id": 3,
+            "name": "bean",
+            "price": 17.50,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        },
+        {
+            "id": 4,
+            "name": "açucar",
+            "price": 9.90,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        },
+        {
+            "id": 5,
+            "name": "sal",
+            "price": 4.49,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        },
+        {
+            "id": 6,
+            "name": "macarrão",
+            "price": 5,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        },
+        {
+            "id": 7,
+            "name": "oleo",
+            "price": 7,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        },
+        {
+            "id": 8,
+            "name": "farinha de mandioca",
+            "price": 14.99,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        },{
+            "id": 9,
+            "name": "salgadinho",
+            "price": 6,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        }
+        ,{
+            "id": 10,
+            "name": "batata",
+            "price": 2.69,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        }
+        ,{
+            "id": 11,
+            "name": "tomate",
+            "price": 3.99,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        }
+        ,{
+            "id": 12,
+            "name": "alho",
+            "price": 2.74,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        }
+        ,{
+            "id": 13,
+            "name": "cebola",
+            "price": 2.75,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        }
+        ,{
+            "id": 14,
+            "name": "suco 1L",
+            "price": 8,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        }
+        ,{
+            "id": 15,
+            "name": "refrigerante",
+            "price": 9,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        }
+        ,{
+            "id": 16,
+            "name": "agua 5L",
+            "price": 12,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        }
+        ,{
+            "id": 17,
+            "name": "banana",
+            "price": 5,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        }
+        ,{
+            "id": 18,
+            "name": "maça",
+            "price": 9.98,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        }
+        ,{
+            "id": 19,
+            "name": "uva",
+            "price": 4,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        }
+        ,{
+            "id": 20,
+            "name": "melancia",
+            "price": 5.99,
+            "discount": 0,
+            "image": "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/08/Paper-coffee-bag-on-transparent-background-PNG.png",
+            "inStock": 1,
+            "category": "fruits"
+        }
+    ]
+}
