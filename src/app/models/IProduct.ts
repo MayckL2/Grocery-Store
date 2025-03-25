@@ -1,7 +1,9 @@
 export interface IProduct {
     id: number,
-    category: string,
     name: string,
-    inStock: boolean
-    promotion: undefined | number
+    price: number,
+    discount: undefined | number,
+    image: string,
+    inStock: number,
+    category: string
 }
