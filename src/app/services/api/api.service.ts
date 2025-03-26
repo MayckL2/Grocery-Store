@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ICompra } from '../../models/compra';
 import { BehaviorSubject } from 'rxjs';
 import { IProduct } from '../../models/IProduct';
-import data from '../../../../database/data.json';
+import stock from '../../../../database/stock.json';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,7 @@ export class ApiService {
 
   // FETCH DATA FROM FAKE API
   fetchApi() {
-    return data;
+    return stock;
   }
 
   // RETURN CART QUANTITY

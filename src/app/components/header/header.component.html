@@ -1,18 +1,18 @@
-<header class="grid grid-cols-1 grid-rows-2 gap-6 md:px-20 px-8 py-6 h-min">
-    <div class="flex justify-between items-start h-min row-span-2">
+<header class="grid grid-cols-1 grid-rows-2 gap-6 md:px-20 sm:px-8 px-4 py-6 h-min fixed">
+    <div class="flex sm:justify-between justify-start sm:flex-row flex-col gap-4 h-min row-span-2">
         <!-- LOGO -->
-        <a href="#">
+        <a href="#" class="flex justify-center object-fit">
             <img class="w-40" src="FreshcartLogo.png" alt="Freshcart Logo">
         </a>
 
         <!-- SEARCH INPUT -->
-        <div class="relative bg-stone-100 px-8 py-2 rounded">
+        <div class="relative bg-stone-100 px-8 py-2 rounded sm:flex hidden">
             <i class="pi pi-search absolute left-2 top-[0.6em] text-green-500"></i>
             <input class="outline-none" type="text" placeholder="Search essentials, groceries and more...">
         </div>
-        
+
         <!-- LOGIN AND CART -->
-        <div class="flex gap-2">
+        <div class="flex gap-2 sm:flex hidden">
             <button class="flex place-items-center gap-2">
                 <i class="pi pi-user text-green-500"></i>
                 <p>Login</p>

@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
 
   adicionarProduto(produto: IProduct) {
     this.observableService.adicionarProduto(produto);
-    console.log(this.qtdCarrinho$);
+    // console.log(this.qtdCarrinho$);
   }
 
   // Adicionando incrito na variavel
