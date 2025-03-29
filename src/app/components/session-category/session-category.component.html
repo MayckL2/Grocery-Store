@@ -9,7 +9,9 @@
     </div>
 
     <!-- RENDER PRODUCTS -->
-    <div class="flex gap-4 ">
+    <!-- <div class="flex gap-4 ">
         <app-product *ngFor="let product of products" [productProp]="product"/>
-    </div>
+    </div> -->
+
+    <app-product-carousel [products]="products"></app-product-carousel>
 </div>
