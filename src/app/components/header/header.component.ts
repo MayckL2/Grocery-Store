@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
   // Adicionando incrito na variavel
   ngOnInit(): void {
     this.products = this.observableService.fetchApi().products;
-    console.log(this.products.filter(e => e.category == "fruits" ? console.log(e) : console.log("not fruit")));
+    // console.log(this.products.filter(e => e.category == "fruits" ? console.log(e) : console.log("not fruit")));
   
     // let test
     // test = this.products.filter(e => {e.category == "fruits" ? return e : undefined});
