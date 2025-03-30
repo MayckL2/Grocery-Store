@@ -8,7 +8,6 @@ import stock from '../../../../database/stock.json';
   providedIn: 'root',
 })
 export class ApiService {
-  // private products: IProduct[] = [];
   private carrinho: ICompra[] = [];
   // OBSERVABLE
   private ProdutoAdicionado$ = new BehaviorSubject<number>(0);
@@ -16,6 +15,19 @@ export class ApiService {
   // FETCH DATA FROM FAKE API
   fetchApi() {
     return stock;
+  }
+
+  // RETURN ALL PRODUCTS
+  getAll(){
+    return this.fetchApi();
+  }
+
+  // RETURN ALL PRODUCT WITH DISCOUNT
+  getWithDiscount(){
+    let all = this.fetchApi();
+    let haveDiscount = all.products.filter(e => e.discount);
+
+    return haveDiscount;
   }
 
   // RETURN CART QUANTITY

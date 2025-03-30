@@ -1,4 +1,4 @@
-import { Component, Input, input, OnInit } from '@angular/core';
+import { Component, Input, input, OnInit, TemplateRef } from '@angular/core';
 import { IProduct } from '../../models/IProduct';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 
@@ -14,12 +14,16 @@ export class ProductComponent implements OnInit {
   // STORE PERMISSIONS FOR SHOWING SOME COMPONENTS
   conditions = {
     showDiscount: 0,
-    showNotAvaliable: false
+    showNotAvaliable: false,
+    showNotDiscount: true
   }
 
   // CALCULATE DISCOUNT IN THE PRODUCT
   calculatePrice(){
-    this.discountPrice = this.productProp.price - this.productProp.discount
+    this.discountPrice = this.productProp.price - ( this.productProp.price * ( this.productProp.discount / 100));
+
+    // console.log(`${this.productProp.price} - ${this.productProp.discount}% = ${this.discountPrice}`);
+    // console.log("desconto do " + this.productProp.name + "= " + this.productProp.discount / 100);
   }
 
   ngOnInit(): void {

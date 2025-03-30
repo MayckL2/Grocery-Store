@@ -1,10 +1,14 @@
-<div class="lg:mt-40 sm:mt-60 mt-80">
-    <!-- <app-carousel [products]="products"></app-carousel> -->
+<div class="mt-40">
+    <app-carousel></app-carousel>
     
     <section>
         <app-session-category text="Shop From" greenText="Top Categories" [products]="products"></app-session-category>
     </section>
 
-    {{qtdCarrinho$ | async }}
+    <section>
+        <app-session-category text="Supersaver" greenText="Up to 50% off" [products]="discountProducts"></app-session-category>
+    </section>
+    
+    <!-- {{qtdCarrinho$ | async }} -->
 
 </div>
