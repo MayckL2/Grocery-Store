@@ -21,6 +21,7 @@ import { IProduct } from '../../models/IProduct';
 })
 export class HomeComponent implements OnInit {
   products: IProduct[] = [];
+  discountProducts: IProduct[] = [];
   // Nova forma de instanciar um service com signal
   observableService = inject(ApiService);
 
@@ -35,12 +36,12 @@ export class HomeComponent implements OnInit {
 
   // Adicionando incrito na variavel
   ngOnInit(): void {
-    this.products = this.observableService.fetchApi().products;
+    this.products = this.observableService.getAll().products;
+    this.discountProducts = this.observableService.getWithDiscount();
 
     // const subContador = this.qtdCarrinho$.subscribe((value) => {
     //   console.log('valor emitido:', value);
     // });
-
   }
 
   // Desinscrevendo todos os inscritos quando o compronente for destruido
