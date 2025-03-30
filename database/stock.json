@@ -1,0 +1,183 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "coffe",
+            "price": 20,
+            "discount": 50,
+            "image": "https://s3-sa-east-1.amazonaws.com/superimg/img.produtos/7896089012637/img_1200_1.png",
+            "inStock": 1,
+            "category": "food"
+        },
+        {
+            "id": 2,
+            "name": "rice",
+            "price": 30,
+            "discount": 5,
+            "image": "https://namorado.com.br/wp-content/uploads/sites/9/2020/06/arroz-branco-1kg-e-5kg-1024x1024.png",
+            "inStock": 10,
+            "category": "food"
+        },
+        {
+            "id": 3,
+            "name": "bean",
+            "price": 17.50,
+            "discount": 0,
+            "image": "https://s3-sa-east-1.amazonaws.com/superimg/img.produtos/7896116900029/img_1200_1.png",
+            "inStock": 0,
+            "category": "food"
+        },
+        {
+            "id": 4,
+            "name": "açucar",
+            "price": 9.90,
+            "discount": 0,
+            "image": "https://superprix.vteximg.com.br/arquivos/ids/174589/Acucar-Cristal-Uniao-Cristalcucar-1kg.png?v=636213802015630000",
+            "inStock": 20,
+            "category": "food"
+        },
+        {
+            "id": 5,
+            "name": "sal",
+            "price": 4.49,
+            "discount": 0,
+            "image": "https://www.guacira.com.br/images/produtos/0822427001719324108.webp",
+            "inStock": 3,
+            "category": "food"
+        },
+        {
+            "id": 6,
+            "name": "macarrão",
+            "price": 5,
+            "discount": 0,
+            "image": "https://giassi.vtexassets.com/arquivos/ids/1158478/Macarrao-de-Semola-com-Ovos-Penne-Renata-Pacote-500g.png?v=638509726134830000",
+            "inStock": 21,
+            "category": "food"
+        },
+        {
+            "id": 7,
+            "name": "oleo",
+            "price": 7,
+            "discount": 4,
+            "image": "https://giassi.vtexassets.com/arquivos/ids/2756515/Oleo-de-Soja-Tipo-1-Liza-Garrafa-900ml.png?v=638627536654700000",
+            "inStock": 11,
+            "category": "food"
+        },
+        {
+            "id": 8,
+            "name": "farinha de mandioca",
+            "price": 14.99,
+            "discount": 0,
+            "image": "https://www.grupopq.com.br/wp-content/uploads/elementor/thumbs/PQ-Farinha-de-Mandioca-500g-oyyipfjkep2akjrr4xkov8tsl1u15b2vwoyns1qn48.png",
+            "inStock": 2,
+            "category": "food"
+        },{
+            "id": 9,
+            "name": "salgadinho",
+            "price": 6,
+            "discount": 0,
+            "image": "https://ibassets.com.br/ib.item.image.large/l-8d4ca5ae39d344cfa18373a6606665cd.png",
+            "inStock": 4,
+            "category": "processed"
+        }
+        ,{
+            "id": 10,
+            "name": "batata",
+            "price": 2.69,
+            "discount": 0,
+            "image": "https://static.vecteezy.com/system/resources/thumbnails/029/721/418/small_2x/potato-transparent-background-png.png",
+            "inStock": 8,
+            "category": "natural"
+        }
+        ,{
+            "id": 11,
+            "name": "tomate",
+            "price": 3.99,
+            "discount": 0,
+            "image": "https://png.pngtree.com/png-clipart/20210530/original/pngtree-tomato-natural-gourmet-vegetables-png-image_6370292.jpg",
+            "inStock": 17,
+            "category": "natural"
+        }
+        ,{
+            "id": 12,
+            "name": "alho",
+            "price": 2.74,
+            "discount": 5,
+            "image": "https://png.pngtree.com/png-clipart/20241011/original/pngtree-healthy-garlic-png-image_16277656.png",
+            "inStock": 4,
+            "category": "natural"
+        }
+        ,{
+            "id": 13,
+            "name": "cebola",
+            "price": 2.75,
+            "discount": 0,
+            "image": "https://png.pngtree.com/png-clipart/20210530/original/pngtree-onion-healthy-vegetables-png-image_6343693.jpg",
+            "inStock": 1,
+            "category": "natural"
+        }
+        ,{
+            "id": 14,
+            "name": "suco 1L",
+            "price": 8,
+            "discount": 0,
+            "image": "https://tdc0wy.vteximg.com.br/arquivos/ids/165382-1000-1000/NECTAR%20DEL%20VALLE%201L%20LARANJA.png.png?v=638754951315900000",
+            "inStock": 6,
+            "category": "drink"
+        }
+        ,{
+            "id": 15,
+            "name": "refrigerante",
+            "price": 9,
+            "discount": 0,
+            "image": "https://superprix.vteximg.com.br/arquivos/ids/174357-600-600/Refrigerante-Fanta-Laranja-25l.png?v=636203499183300000",
+            "inStock": 10,
+            "category": "drink"
+        }
+        ,{
+            "id": 16,
+            "name": "agua",
+            "price": 12,
+            "discount": 0,
+            "image": "https://png.pngtree.com/png-vector/20240913/ourmid/pngtree-mineral-water-bottle-png-image_13600124.png",
+            "inStock": 0,
+            "category": "drink"
+        }
+        ,{
+            "id": 17,
+            "name": "banana",
+            "price": 5,
+            "discount": 0,
+            "image": "https://png.pngtree.com/png-clipart/20210530/original/pngtree-banana-vitamin-fruit-diet-png-image_6343208.png",
+            "inStock": 4,
+            "category": "fruits"
+        }
+        ,{
+            "id": 18,
+            "name": "maça",
+            "price": 9.98,
+            "discount": 0,
+            "image": "https://static.vecteezy.com/system/resources/previews/029/228/390/non_2x/apple-transparent-background-free-png.png",
+            "inStock": 1,
+            "category": "fruits"
+        }
+        ,{
+            "id": 19,
+            "name": "uva",
+            "price": 4,
+            "discount": 10,
+            "image": "https://static.vecteezy.com/system/resources/previews/011/222/254/non_2x/ripe-red-wet-grape-isolated-png.png",
+            "inStock": 20,
+            "category": "fruits"
+        }
+        ,{
+            "id": 20,
+            "name": "melancia",
+            "price": 5.99,
+            "discount": 0,
+            "image": "https://static.vecteezy.com/system/resources/previews/029/200/216/non_2x/watermelon-transparent-background-free-png.png",
+            "inStock": 1,
+            "category": "fruits"
+        }
+    ]
+}
