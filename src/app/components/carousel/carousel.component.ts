@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
+import { Image } from 'primeng/image';
 
 interface Product {
   name: string,
@@ -8,22 +9,20 @@ interface Product {
 
 @Component({
   selector: 'app-carousel',
-  imports: [CarouselModule],
+  imports: [CarouselModule, Image],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.scss',
 })
 export class CarouselComponent implements OnInit {
-  @Input() products: Product[] = [];
-  carouselProducts: Product[] = [];
   responsiveOptions: any[] | undefined;
-
-  filterProducts(){
-    this.carouselProducts = this.products;
-    // console.log(this.carouselProducts)
-  }
+  images = [
+    'carousel0.png',
+    'carousel1.png',
+    'carousel2.png',
+    'carousel3.png',
+  ]
 
   ngOnInit() {
-    this.filterProducts();
 
     this.responsiveOptions = [
       {

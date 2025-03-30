@@ -1,8 +1,9 @@
 <div class="card">
-    <p-carousel [value]="carouselProducts" [numVisible]="1" [numScroll]="3" [circular]="true" [responsiveOptions]="responsiveOptions" >
+    <p-carousel [value]="images" [numVisible]="1" [numScroll]="1" [circular]="true"
+        [responsiveOptions]="responsiveOptions">
         <ng-template let-product #item>
-            <div class="h-40 border border-surface rounded-border">
-                <p>{{product.name}}</p>
+            <div class="bg-linear-to-r from-green-500/50 to-lime-500/50 rounded-xl w-full py-6">
+                <p-image [src]="product" [alt]="product" styleClass="flex justify-center w-full object-cover" />
             </div>
         </ng-template>
     </p-carousel>
