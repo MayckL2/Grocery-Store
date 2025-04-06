@@ -7,13 +7,20 @@ import {
 import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+// ADJUSTING ROUTE PARAMETERS ON SERVER SIDE
 import { APP_BASE_HREF } from '@angular/common';
+import { existsSync } from 'fs';
+import { join } from 'path';
+import { AppServerModule } from './src/main.server';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
+// ADJUSTING ROUTE PARAMETERS ON SERVER SIDE
+const distFolder = join(process.cwd(), 'dist/your-app/browser');
+  const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
 /**
  * Example Express Rest API endpoints can be defined here.
@@ -65,7 +72,7 @@ if (isMainModule(import.meta.url)) {
  * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
  */
 
-// Configuração das rotas pré-renderizadas
+// ADJUSTING ROUTE PARAMETERS ON SERVER SIDE
 app.get('*', (req, res) => {
   res.render(indexHtml, {
     req,
