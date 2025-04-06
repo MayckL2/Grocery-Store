@@ -8,7 +8,7 @@ import {
   CategoryComponent,
   Options,
 } from './category/category/category.component';
-import { Product } from '../productCarousel/product-carousel/product-carousel.component';
+import { Product } from '../productCarousel/product-carousel.component';
 import { IProduct } from '../../models/IProduct';
 import { ApiService } from '../../services/api/api.service';
 
