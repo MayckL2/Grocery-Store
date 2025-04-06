@@ -8,10 +8,11 @@ import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 // ADJUSTING ROUTE PARAMETERS ON SERVER SIDE
+import { ngExpressEngine } from '@nguniversal/express-engine';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 import { join } from 'path';
-import { AppServerModule } from './main.server';
+import AppServerModule from './main.server';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
