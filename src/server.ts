@@ -65,7 +65,7 @@ if (isMainModule(import.meta.url)) {
  */
 
 // Configuração das rotas pré-renderizadas
-server.get('*', (req, res) => {
+app.get('*', (req, res) => {
   res.render(indexHtml, {
     req,
     providers: [
