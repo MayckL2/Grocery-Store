@@ -63,4 +63,30 @@ if (isMainModule(import.meta.url)) {
 /**
  * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
  */
+
+// Configuração das rotas pré-renderizadas
+server.get('*', (req, res) => {
+  res.render(indexHtml, {
+    req,
+    providers: [
+      { provide: APP_BASE_HREF, useValue: req.baseUrl }
+    ],
+    // Adicione esta configuração para rotas com parâmetros
+    prerender: {
+      routes: [
+        '/',
+        '/products',
+        {
+          route: '/product/:name',
+          getPrerenderParams: () => [
+            { name: 'product1' },
+            { name: 'product2' },
+            { name: 'product3' }
+          ]
+        }
+      ]
+    }
+  });
+});
+
 export const reqHandler = createNodeRequestHandler(app);
