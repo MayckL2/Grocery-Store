@@ -9,7 +9,7 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
   styleUrl: './product.component.scss',
 })
 export class ProductComponent implements OnInit {
-  @Input() productProp!: IProduct;
+  productProp = input<IProduct>();
   discountPrice: number | undefined;
   // STORE PERMISSIONS FOR SHOWING SOME COMPONENTS
   conditions = {
@@ -20,7 +20,7 @@ export class ProductComponent implements OnInit {
 
   // CALCULATE DISCOUNT IN THE PRODUCT
   calculatePrice(){
-    this.discountPrice = this.productProp.price - ( this.productProp.price * ( this.productProp.discount / 100));
+    this.discountPrice = this.productProp()!.price - ( this.productProp()!.price * ( this.productProp()!.discount / 100));
 
     // console.log(`${this.productProp.price} - ${this.productProp.discount}% = ${this.discountPrice}`);
     // console.log("desconto do " + this.productProp.name + "= " + this.productProp.discount / 100);
@@ -28,11 +28,11 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     // AVALIABLE IN STOCK?
-    if(this.productProp.inStock == 0) this.conditions.showNotAvaliable = true
+    if(this.productProp()?.inStock == 0) this.conditions.showNotAvaliable = true
   
     // HAS DISCOUNT?
-    if(this.productProp.discount){
-      this.conditions.showDiscount = this.productProp.discount
+    if(this.productProp()?.discount){
+      this.conditions.showDiscount = this.productProp()!.discount
       this.calculatePrice()
     } 
 

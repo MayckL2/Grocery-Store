@@ -17,7 +17,7 @@ export interface Options {
   styleUrl: './category.component.scss'
 })
 export class CategoryComponent {
-  @Input() name: string = '';
-  @Input() options: Options[] | undefined;
+  name = input<string>();
+  options = input<Options[] | undefined>();
   // options: any = input<Options[]>();
 }
