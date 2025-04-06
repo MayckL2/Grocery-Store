@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   // subs = new Subscription();
 
   adicionarProduto(produto: IProduct) {
-    this.observableService.adicionarProduto(produto);
+    this.observableService.addProduct(produto);
     // console.log(this.qtdCarrinho$);
   }
 

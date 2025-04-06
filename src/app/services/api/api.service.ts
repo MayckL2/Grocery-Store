@@ -36,7 +36,7 @@ export class ApiService {
   }
 
   // ADD PRODUCT IN CART
-  adicionarProduto(produto: IProduct) {
+  addProduct(produto: IProduct) {
     const produtoCompra: ICompra = {
       id: this.carrinho.length + 1,
       name: produto.name,

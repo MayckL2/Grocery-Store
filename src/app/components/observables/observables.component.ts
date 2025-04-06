@@ -18,7 +18,7 @@ export class ObservablesComponent implements OnInit, OnDestroy{
   subs = new Subscription();
 
   adicionarProduto(produto: IProduct){
-    this.observableService.adicionarProduto(produto);
+    this.observableService.addProduct(produto);
     console.log(this.qtdCarrinho$);
   }
  
