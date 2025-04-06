@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
-import { ProductComponent } from "../../product/product.component";
+import { ProductComponent } from "../product/product.component";
+import { CommonModule } from '@angular/common';
 
 export interface Product {
   name: string,
@@ -9,17 +10,17 @@ export interface Product {
 
 @Component({
   selector: 'app-product-carousel',
-  imports: [CarouselModule, ProductComponent],
+  imports: [CarouselModule, ProductComponent, CommonModule],
   templateUrl: './product-carousel.component.html',
   styleUrl: './product-carousel.component.scss',
 })
 export class ProductCarouselComponent {
-  @Input() products: Product[] = [];
-  carouselProducts: Product[] = [];
+  products = input<Product[] | undefined>();
+  carouselProducts: Product[] | undefined = [];
   responsiveOptions: any[] | undefined;
 
   filterProducts() {
-    this.carouselProducts = this.products;
+    this.carouselProducts = this.products();
     // console.log(this.carouselProducts)
   }
 

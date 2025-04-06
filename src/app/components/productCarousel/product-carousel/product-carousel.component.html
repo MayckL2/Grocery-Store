@@ -1,9 +1,0 @@
-<div class="card">
-    <p-carousel [value]="carouselProducts" [numVisible]="1" [numScroll]="3" [circular]="true" [responsiveOptions]="responsiveOptions" showIndicators="false">
-        <ng-template let-product #item>
-            <div class="rounded-xl flex justify-center gap-4">
-                <app-product [productProp]="product"></app-product>
-            </div>
-        </ng-template>
-    </p-carousel>
-</div>

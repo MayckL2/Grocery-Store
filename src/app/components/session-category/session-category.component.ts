@@ -3,11 +3,11 @@ import { IProduct } from '../../models/IProduct';
 import { ProductComponent } from "../product/product.component";
 import { CommonModule } from '@angular/common';
 import {MatDividerModule} from '@angular/material/divider';
-import { ProductCarouselComponent } from "../productCarousel/product-carousel/product-carousel.component";
+import { ProductCarouselComponent } from "../productCarousel/product-carousel.component";
 
 @Component({
   selector: 'app-session-category',
-  imports: [ProductComponent, CommonModule, MatDividerModule, ProductCarouselComponent],
+  imports: [CommonModule, MatDividerModule, ProductCarouselComponent],
   templateUrl: './session-category.component.html',
   styleUrl: './session-category.component.scss'
 })
