@@ -22,6 +22,14 @@ export class ApiService {
     return this.fetchApi();
   }
 
+  // RETURN ONE PRODUCT
+  getProduct(id: number) {
+    let data: IProduct[] = this.fetchApi().products;
+    let product: IProduct[] = data.filter((e: IProduct) => e.id == id)
+
+    return product[0];
+  }
+
   // RETURN ALL PRODUCT WITH DISCOUNT
   getWithDiscount(){
     let all = this.fetchApi();
