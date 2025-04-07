@@ -1,3 +1,10 @@
-<div class="mt-40 md:px-20 px-8">
-    <p>product-details works!</p>
+<div class="mt-40 md:px-20 px-8 grid md:grid-cols-3 grid-cols-1 gap-4">
+    <div class="grid col-span-2 gap-4 rounded-xl bg-green-50 p-4">
+        <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Voltar</a>
+
+        <img class="w-60" src="{{productData?.image}}" alt="{{productData?.name}}">
+    </div>
+    <div class="grid gap-4 rounded-xl bg-green-50 p-4">
+        <p>{{productData?.name}}</p>
+    </div>
 </div>
