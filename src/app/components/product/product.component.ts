@@ -33,7 +33,7 @@ export class ProductComponent implements OnInit {
 
   // ADJUSTING PRODUCT LINK
   routingProduct(){
-    this.router.navigate(['/product', this.productProp()?.name]);
+    this.router.navigate(['/product', this.productProp()?.id]);
   }
 
   // ADD ITENS ON CART
