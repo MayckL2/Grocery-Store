@@ -1,13 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IProduct } from '../../models/IProduct';
-import { ProductComponent } from "../product/product.component";
 import { CommonModule } from '@angular/common';
 import {MatDividerModule} from '@angular/material/divider';
-import { ProductCarouselComponent } from "../productCarousel/product-carousel.component";
+import { ProductCarousel2Component } from "../product-carousel2/product-carousel2.component";
 
 @Component({
   selector: 'app-session-category',
-  imports: [CommonModule, MatDividerModule, ProductCarouselComponent],
+  imports: [CommonModule, MatDividerModule, ProductCarousel2Component],
   templateUrl: './session-category.component.html',
   styleUrl: './session-category.component.scss'
 })
