@@ -7,6 +7,7 @@ import { CarouselComponent } from '../../components/carousel/carousel.component'
 import { ApiService } from '../../services/api/api.service';
 import { Subscription } from 'rxjs';
 import { IProduct } from '../../models/IProduct';
+import { Carousel2Component } from "../../components/carousel2/carousel2.component";
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ import { IProduct } from '../../models/IProduct';
     SessionCategoryComponent,
     HeaderComponent,
     CarouselComponent,
-  ],
+    Carousel2Component
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
