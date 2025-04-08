@@ -4,6 +4,12 @@
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
 
+/* No seu CSS global ou no componente */
+@use 'swiper/css';
+@use 'swiper/css/navigation';
+@use 'swiper/css/pagination';
+@use 'swiper/css/scrollbar';
+
 // Customize the entire app. Change :root to your selector if you want to scope the styles.
 :root {
   @include mat.button-overrides((
@@ -25,3 +31,18 @@ html {
 }/* You can add global styles to this file, and also import other style files */
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Estilos personalizados */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  // background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
