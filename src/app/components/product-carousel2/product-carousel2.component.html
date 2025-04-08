@@ -1,0 +1,5 @@
+<div class="swiper-container overflow-x-hidden" appCarousel="config">
+    <div class="swiper-wrapper">
+        <app-product *ngFor="let product of products" class="swiper-slide" [productProp]="product"></app-product>
+    </div>
+</div>
