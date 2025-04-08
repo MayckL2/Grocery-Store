@@ -1,22 +1,19 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
-import { ProductComponent } from '../../components/product/product.component';
 import { SessionCategoryComponent } from '../../components/session-category/session-category.component';
-import { HeaderComponent } from '../../components/header/header.component';
-import { CarouselComponent } from '../../components/carousel/carousel.component';
 import { ApiService } from '../../services/api/api.service';
-import { Subscription } from 'rxjs';
 import { IProduct } from '../../models/IProduct';
 import { Carousel2Component } from "../../components/carousel2/carousel2.component";
+import { RouterModule } from '@angular/router';
 
 @Component({
+  standalone: true,
   selector: 'app-home',
   imports: [
     CommonModule,
     SessionCategoryComponent,
-    HeaderComponent,
-    CarouselComponent,
-    Carousel2Component
+    Carousel2Component,
+    RouterModule
 ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
