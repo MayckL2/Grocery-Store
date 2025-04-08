@@ -1,16 +1,16 @@
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
-import { FloatLabel } from 'primeng/floatlabel';
 import { MatIconModule } from '@angular/material/icon';
 import {
-  CategoryComponent,
-  Options,
+  Options
 } from './category/category/category.component';
 import { Product } from '../productCarousel/product-carousel.component';
 import { IProduct } from '../../models/IProduct';
 import { ApiService } from '../../services/api/api.service';
+import { BadgeModule } from 'primeng/badge';
+import { FloatLabelModule } from "primeng/floatlabel"
 
 @Component({
   selector: 'app-header',
@@ -19,7 +19,9 @@ import { ApiService } from '../../services/api/api.service';
     CommonModule,
     FormsModule,
     MatIconModule,
-    CategoryComponent,
+    BadgeModule,
+    AsyncPipe,
+    FloatLabelModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -30,12 +32,15 @@ export class HeaderComponent implements OnInit {
   products: IProduct[] = [];
   observableService = inject(ApiService);
 
+  // OPTIONS CATEGORY
   fruits: Options[] | undefined = [{ name: 'fruits', destination: '#' }];
   dairy: Options[] | undefined = [{ name: 'dairy', destination: '#' }];
   drinks: Options[] | undefined = [{ name: 'drinks', destination: '#' }];
   snacks: Options[] | undefined = [{ name: 'snacks', destination: '#' }];
 
-  // Adicionando incrito na variavel
+  // CART QUANTITY
+  cartQtt$ = this.observableService.obterQuantidadeCarrinho();
+
   ngOnInit(): void {
     this.products = this.observableService.fetchApi().products;
     // console.log(this.products.filter(e => e.category == "fruits" ? console.log(e) : console.log("not fruit")));

@@ -40,6 +40,7 @@ export class ApiService {
 
   // RETURN CART QUANTITY
   obterQuantidadeCarrinho() {
+    // RETURN OBSERVABLE VALUE
     return this.ProdutoAdicionado$;
   }
 
