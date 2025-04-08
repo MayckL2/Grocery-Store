@@ -1,10 +1,38 @@
 <div class="mt-40 md:px-20 px-8 grid md:grid-cols-3 grid-cols-1 gap-4">
     <div class="grid col-span-2 gap-4 rounded-xl bg-green-50 p-4">
-        <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Voltar</a>
+        <div class="flex justify-between">
+            <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Voltar</a>
+            
+            <div class="flex gap-4">
+                <span>{{ productData?.category }}</span>
+                <span *ngIf="productData?.category == 'natural'">Perishable natural product</span>
+            </div>
+        </div>
 
         <img class="w-60" src="{{productData?.image}}" alt="{{productData?.name}}">
+
+        <div class="flex justify-end">
+            <span *ngIf="productData?.inStock; else outStock">In Stock: {{ productData?.inStock }}</span>
+            <ng-template #outStock>Product out of stock</ng-template>
+        </div>
     </div>
-    <div class="grid gap-4 rounded-xl bg-green-50 p-4">
+
+    <div class="grid gap-4 rounded-xl bg-green-50 p-4 h-min">
         <p>{{productData?.name}}</p>
+
+        <div>
+            <p>{{ productData?.price }}</p>
+            <span>will arrive at your address within {{ 5 }} horas</span>
+            <div>
+                <p-button label="-" (click)="removeQuantity()" />
+                <span>{{ quantity }}</span>
+                <p-button label="+"  (click)="addQuantity()"/>
+            </div>
+        </div>
+
+        <div>
+            <p-button label="Add Cart"/>
+            <p-button label="Buy"/>
+        </div>
     </div>
 </div>
