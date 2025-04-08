@@ -31,7 +31,7 @@
             "id": 4,
             "name": "açucar",
             "price": 9.90,
-            "discount": 0,
+            "discount": 10,
             "image": "https://superprix.vteximg.com.br/arquivos/ids/174589/Acucar-Cristal-Uniao-Cristalcucar-1kg.png?v=636213802015630000",
             "inStock": 20,
             "category": "food"
