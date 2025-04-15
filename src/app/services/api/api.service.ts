@@ -44,17 +44,25 @@ export class ApiService {
     return this.ProdutoAdicionado$;
   }
 
+  // CALC CART QUANTITY
+  calcCartQuantity(itens: ICompra[]){
+    let quantity = 0;
+    itens.map((e: ICompra) => quantity += e.quantity);
+    return quantity;
+  }
+
   // ADD PRODUCT IN CART
-  addProduct(produto: IProduct) {
+  addProduct(produto: IProduct, quantity: number = 1) {
     const produtoCompra: ICompra = {
       id: this.carrinho.length + 1,
       name: produto.name,
       price: produto.price,
-      inStock: produto.inStock
+      inStock: produto.inStock,
+      quantity: quantity
     };
 
     this.carrinho.push(produtoCompra);
     // SEND THE QUANTITY OF ITENS FOR THE SUBCRIBES
-    this.ProdutoAdicionado$.next(this.carrinho.length);
+    this.ProdutoAdicionado$.next(this.calcCartQuantity(this.carrinho));
   }
 }

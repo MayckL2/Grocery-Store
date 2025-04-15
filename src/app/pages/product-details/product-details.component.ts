@@ -4,11 +4,13 @@ import { ActivatedRoute, RouterLink, RouterModule } from '@angular/router';
 import { IProduct } from '../../models/IProduct';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
+import { Tag } from 'primeng/tag';
+import { Dialog } from 'primeng/dialog';
 
 @Component({
   standalone: true,
   selector: 'app-product-details',
-  imports: [RouterLink, RouterModule, ButtonModule, CommonModule],
+  imports: [RouterLink, RouterModule, ButtonModule, CommonModule, Tag, Dialog],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'
 })
@@ -16,8 +18,10 @@ export class ProductDetailsComponent implements OnInit{
   service = inject(ApiService);
   route = inject(ActivatedRoute);
   productData: IProduct | undefined;
-  quantity: number = 0
-  delivery: number = 0
+  quantity: number = 1
+  delivery: string = "now"
+  visibleDialog: boolean = false;
+  inStock: boolean = true;
 
   addQuantity(){
     if(this.quantity < this.productData!.inStock){
@@ -26,9 +30,14 @@ export class ProductDetailsComponent implements OnInit{
   }
 
   removeQuantity(){
-    if(this.quantity > 0){
+    if(this.quantity > 1){
       this.quantity --
     }
+  }
+
+  handleCart(){
+    this.service.addProduct(this.productData!, this.quantity);
+    this.visibleDialog = true
   }
 
   ngOnInit(): void {
@@ -36,7 +45,10 @@ export class ProductDetailsComponent implements OnInit{
     this.productData = this.service.getProduct(Number(id))
     console.log(this.productData);  
 
+    this.inStock = this.productData.inStock ? true : false 
+
     // DEFINING DELIVERY TIME
-    this.delivery = 2
+    // TO BE CALCULETED BY DISTANCE
+    this.delivery = `${ 2 } hours`
   }
 }
