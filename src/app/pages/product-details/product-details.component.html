@@ -38,11 +38,15 @@
 
         <div class="flex gap-2 justify-end" *ngIf="this.inStock">
             <p-button label="Add Cart" severity="warn" (click)="handleCart()"/>
-            <p-button label="Buy"/>
+            <a [routerLink]="['/buy/' + productData?.id]" routerLinkActive="active" ariaCurrentWhenActive="page">
+                <p-button label="Buy">
+                </p-button>
+            </a>
         </div>
         <ng-template class="flex justify-end gap-2" #outStock>Out of Stock</ng-template>
     </div>
 
+    <!-- DIALOG ABOUT CART UPDATE -->
     <p-dialog header="Update Cart" [modal]="true" [(visible)]="visibleDialog" [style]="{ width: '25rem', backgroundColor: '#ffffff', color: '#000000' }">
         <div class="mb-8 flex flex-col gap-2">
             <span class="p-text-secondary capitalize text-xl text-semibold text-black">{{ productData?.name }} has added on cart</span>
@@ -51,7 +55,9 @@
         </div>
 
         <div class="flex justify-end gap-2">
-            <p-button label="Go to cart" severity="warn" (click)="visibleDialog = false" />
+            <a [routerLink]="['/cart/']" routerLinkActive="active" ariaCurrentWhenActive="page">
+                <p-button label="Go to cart" severity="warn" (click)="visibleDialog = false" />
+            </a>
             <p-button label="Keep buying" (click)="visibleDialog = false" />
         </div>
     </p-dialog>

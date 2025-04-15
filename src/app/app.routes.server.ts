@@ -8,6 +8,14 @@ export const serverRoutes: ServerRoute[] = [
   },
   {
     path: "product/:id",
+    renderMode: RenderMode.Client,
+  },
+  {
+    path: "cart/",
+    renderMode: RenderMode.Client
+  },
+  {
+    path: "buy/:id",
     renderMode: RenderMode.Client
   }
 ];

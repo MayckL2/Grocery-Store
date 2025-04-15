@@ -1,7 +1,7 @@
 <header class="grid grid-cols-1 grid-rows-2 gap-4 md:px-20 sm:px-8 px-4 py-6 h-min w-full bg-green-100/50">
     <div class="flex sm:justify-between justify-start sm:flex-row flex-col gap-4 h-min row-span-2">
         <!-- LOGO -->
-        <a href="#" class="flex justify-center">
+        <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" class="flex justify-center">
             <img class="w-40 object-contain" src="FreshcartLogo.png" alt="Freshcart Logo">
         </a>
 
@@ -20,10 +20,12 @@
 
             <span class="text-stone-500">|</span>
 
-            <button class="flex place-items-center gap-2">
-                <i class="pi pi-shopping-cart text-green-500" pBadge value="{{cartQtt$ | async }}" badgeSize="small"></i>
-                <p>Cart</p>
-            </button>
+            <a routerLink="cart/" routerLinkActive="active" ariaCurrentWhenActive="page">
+                <button class="flex place-items-center gap-2">
+                    <i class="pi pi-shopping-cart text-green-500" pBadge value="{{cartQtt$ | async }}" badgeSize="small"></i>
+                    <p>Cart</p>
+                </button>
+            </a>
         </div>
     </div>
 
