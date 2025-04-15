@@ -1,4 +1,4 @@
-import { Component, computed, effect, signal } from '@angular/core';
+import { AfterContentChecked, AfterViewChecked, Component, computed, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TestComponent } from './test-component';
 import { BehaviorSubject } from 'rxjs';
@@ -8,33 +8,26 @@ import { ObservablesComponent } from "./components/observables/observables.compo
 import { ExhaustmapComponent } from "./components/exhaustmap/exhaustmap.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { InfoComponent } from "./components/info/info.component";
+import { LoadingComponent } from "./components/loading/loading.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, InfoComponent],
+  imports: [RouterOutlet, HeaderComponent, InfoComponent, LoadingComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements AfterContentChecked {
   title = signal('angular-store');
-  showTest: boolean = true;
+  loaded: boolean = false;
 
   constructor(){
     // EXEMPLO DO USO DE SIGNAL
     // console.log(this.title())
     this.title.set('store-angular')
-    // console.log(`mudou o signal: ${this.title()}`)
-
-    const firstNameCapitalized = computed(() => this.title().toUpperCase());
-
-    // console.log(firstNameCapitalized()); // MORGAN
   }
-
-  names: string[] = ['juvi', 'ana', 'banana', 'sapucaia']
-  namesCopy: string[] = this.names
-
-  toggleTest(){
-    console.log("funfou")
-    this.showTest = !this.showTest
+  
+  ngAfterContentChecked(): void {
+    this.loaded = true;
   }
 }

@@ -1,4 +1,8 @@
-<main>
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
+
+<main *ngIf="this.loaded; else loading">
   <div class="fixed z-2 w-full">
     <app-info></app-info>
     <app-header></app-header>
@@ -6,10 +10,10 @@
 
   <hr>
 
-  <router-outlet/>
+  <router-outlet />
 
   <hr>
-  
+
   <footer>
     <a href="#">
       <!-- <img src="../assets/Freshcart Logo.png" alt="Freshcart logo"> -->
