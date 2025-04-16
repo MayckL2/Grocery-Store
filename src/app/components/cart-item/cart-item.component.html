@@ -1,0 +1,20 @@
+<div class="flex p-4 gap-4 justify-between outline outline-2 outline-green-300 rounded-xl">
+    <div class="flex gap-4">
+        <img [src]="product()?.img" [alt]="product()?.name" class="w-32 object-contain">
+        
+        <div class="flex flex-col">
+            <p class="text-xl font-semibold">{{ product()?.name }}</p>
+            <span class="text-lg">{{ product()?.price | currency }}</span>
+        </div>
+    </div>
+
+    <div class="flex md:flex-row flex-col justify-end items-end md:mt-0 mt-20 gap-4">
+        <p-button size="small">Remove</p-button>
+
+        <div class="flex gap-2 items-center">
+            <p-button icon="pi pi-minus" [rounded]="true" size="small"/>
+            <span>{{ product()?.quantity }}</span>
+            <p-button icon="pi pi-plus" [rounded]="true" size="small"/>
+        </div>
+    </div>
+</div>
