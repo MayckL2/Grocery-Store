@@ -1,8 +1,7 @@
-<ng-template #loading>
-  <app-loading></app-loading>
-</ng-template>
+<main >
+  <!-- LOADER -->
+  <app-loading *ngIf="this.loaded == false" message="Loading..."></app-loading>
 
-<main *ngIf="this.loaded; else loading">
   <div class="fixed z-2 w-full">
     <app-info></app-info>
     <app-header></app-header>
