@@ -1,1 +1,31 @@
-<p>cart works!</p>
+<div class="mt-40 md:px-20 px-8 grid md:grid-cols-3 grid-cols-1 gap-4 capitalize">
+    <div class="grid col-span-2 gap-4 rounded-xl bg-green-50 p-4">
+        <div class="flex justify-between">
+            <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">
+                <p-button label="Home Page" icon="pi pi-home" iconPos="left" size="small" />
+            </a>
+        </div>
+
+        <app-cart-item *ngFor="let product of products" [product]="product"></app-cart-item>
+
+    </div>
+
+    <div class="grid gap-4 rounded-xl bg-green-50 p-4 h-min">
+
+        <div class="flex flex-col items-end gap-2">
+            <span class="text-end">will arrive at your address within</span>
+            <div class="flex gap-2 items-center ">
+                <p-button icon="pi pi-minus" [rounded]="true" size="small"/>
+                <p-button icon="pi pi-plus" [rounded]="true" size="small"/>
+            </div>
+        </div>
+
+        <div class="flex gap-2 justify-end">
+            <p-button label="Add Cart" severity="warn"/>
+            <a routerLinkActive="active" ariaCurrentWhenActive="page">
+                <p-button label="Buy">
+                </p-button>
+            </a>
+        </div>
+    </div>
+</div>
