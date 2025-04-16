@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, input, OnDestroy, OnInit } from '@angular/core';
 import { ProgressSpinner } from 'primeng/progressspinner';
   
 @Component({
@@ -9,5 +9,5 @@ import { ProgressSpinner } from 'primeng/progressspinner';
 })
 export class LoadingComponent {
   steps: number = 0;
-  message: string = 'Loading...';
+  message = input('Loading...');
 }
