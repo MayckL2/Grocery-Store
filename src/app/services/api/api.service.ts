@@ -30,6 +30,10 @@ export class ApiService {
     return product[0];
   }
 
+  getCart(){
+    return this.carrinho;
+  }
+
   // RETURN ALL PRODUCT WITH DISCOUNT
   getWithDiscount(){
     let all = this.fetchApi();
@@ -56,6 +60,7 @@ export class ApiService {
     const produtoCompra: ICompra = {
       id: this.carrinho.length + 1,
       name: produto.name,
+      img: produto.image,
       price: produto.price,
       inStock: produto.inStock,
       quantity: quantity
