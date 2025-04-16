@@ -11,6 +11,7 @@ import { IProduct } from '../../models/IProduct';
 import { ApiService } from '../../services/api/api.service';
 import { BadgeModule } from 'primeng/badge';
 import { FloatLabelModule } from "primeng/floatlabel"
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +22,8 @@ import { FloatLabelModule } from "primeng/floatlabel"
     MatIconModule,
     BadgeModule,
     AsyncPipe,
-    FloatLabelModule
+    FloatLabelModule,
+    RouterModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
