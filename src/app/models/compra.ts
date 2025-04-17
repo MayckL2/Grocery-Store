@@ -1,8 +1,9 @@
 export interface ICompra {
     id: number,
     name: string,
-    img: string,
     price: number,
+    discount: number
+    image: string,
     inStock: number,
-    quantity: number
+    quantity: number,
 }
