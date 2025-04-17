@@ -3,6 +3,7 @@ import { IProduct } from '../../models/IProduct';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api/api.service';
+import { ProductService } from '../../services/product/product.service';
 
 @Component({
   selector: 'app-product',
@@ -20,16 +21,9 @@ export class ProductComponent implements OnInit {
     showNotDiscount: true
   }
   service = inject(ApiService);
+  productService = inject(ProductService);
 
   constructor(private router: Router) {}
-
-  // CALCULATE DISCOUNT IN THE PRODUCT
-  calculatePrice(){
-    this.discountPrice = this.productProp()!.price - ( this.productProp()!.price * ( this.productProp()!.discount / 100));
-
-    // console.log(`${this.productProp.price} - ${this.productProp.discount}% = ${this.discountPrice}`);
-    // console.log("desconto do " + this.productProp.name + "= " + this.productProp.discount / 100);
-  }
 
   // ADJUSTING PRODUCT LINK
   routingProduct(){
@@ -52,8 +46,8 @@ export class ProductComponent implements OnInit {
   
     // HAS DISCOUNT?
     if(this.productProp()?.discount){
-      this.conditions.showDiscount = this.productProp()!.discount
-      this.calculatePrice()
+      this.conditions.showDiscount = this.productProp()?.discount ?? 0
+      this.discountPrice = this.productService.calculatePrice(this.productProp()!.price, this.productProp()?.discount)
     } 
 
     // console.log(this.productProp.name, this.conditions)
