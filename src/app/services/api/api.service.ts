@@ -10,7 +10,7 @@ import stock from '../../../../database/stock.json';
 export class ApiService {
   private carrinho: ICompra[] = [];
   // OBSERVABLE
-  private ProdutoAdicionado$ = new BehaviorSubject<number>(0);
+  private ProdutoAdicionado$ = new BehaviorSubject<number>(this.carrinho.length);
 
   // FETCH DATA FROM FAKE API
   fetchApi() {
@@ -18,26 +18,26 @@ export class ApiService {
   }
 
   // RETURN ALL PRODUCTS
-  getAll(){
+  getAll() {
     return this.fetchApi();
   }
 
   // RETURN ONE PRODUCT
   getProduct(id: number) {
     let data: IProduct[] = this.fetchApi().products;
-    let product: IProduct[] = data.filter((e: IProduct) => e.id == id)
+    let product: IProduct[] = data.filter((e: IProduct) => e.id == id);
 
     return product[0];
   }
 
-  getCart(){
+  getCart() {
     return this.carrinho;
   }
 
   // RETURN ALL PRODUCT WITH DISCOUNT
-  getWithDiscount(){
+  getWithDiscount() {
     let all = this.fetchApi();
-    let haveDiscount = all.products.filter(e => e.discount);
+    let haveDiscount = all.products.filter((e) => e.discount);
 
     return haveDiscount;
   }
@@ -49,25 +49,54 @@ export class ApiService {
   }
 
   // CALC CART QUANTITY
-  calcCartQuantity(itens: ICompra[]){
+  calcCartQuantity(itens: ICompra[]) {
     let quantity = 0;
-    itens.map((e: ICompra) => quantity += e.quantity);
+    itens.map((e: ICompra) => (quantity += e.quantity));
     return quantity;
   }
 
   // ADD PRODUCT IN CART
   addProduct(produto: IProduct, quantity: number = 1) {
     const produtoCompra: ICompra = {
-      id: this.carrinho.length + 1,
+      id: produto.id,
       name: produto.name,
-      img: produto.image,
+      image: produto.image,
       price: produto.price,
       inStock: produto.inStock,
-      quantity: quantity
+      quantity: quantity,
+      discount: produto.discount ?? 0,
     };
 
     this.carrinho.push(produtoCompra);
     // SEND THE QUANTITY OF ITENS FOR THE SUBCRIBES
     this.ProdutoAdicionado$.next(this.calcCartQuantity(this.carrinho));
+  }
+
+  // REMOVE PRODUCT FROM CART
+  removeProduct(id: number, quantity: number = 1) {
+    let newCart = this.carrinho.filter((e) => e.id !== id);
+    this.carrinho = newCart;
+    console.log(this.carrinho);
+
+    // SEND THE QUANTITY OF ITENS FOR THE SUBCRIBES
+    this.ProdutoAdicionado$.next(this.calcCartQuantity(this.carrinho));
+  }
+
+  // CONCAT SAME ITENS AND SOME QUANTITY
+  ConcatItemsQuantity() {
+    let items: ICompra[] = [];
+    let buy: ICompra | undefined;
+    let index: number
+    
+    for (let i = 0; i < this.carrinho.length; i++) {
+      if(items.find(e => e.id == this.carrinho[i].id)){
+        index = items.findIndex(e => e.id == this.carrinho[i].id)
+        buy = items.find(e => e.id == this.carrinho[i].id)
+        items[index] = {...this.carrinho[i], quantity: this.carrinho[i].quantity + buy!.quantity}
+      }else{
+        items.push(this.carrinho[i])
+      }
+    }
+    return items;
   }
 }
