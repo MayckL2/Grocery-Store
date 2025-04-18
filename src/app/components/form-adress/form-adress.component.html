@@ -1,0 +1,39 @@
+<form [formGroup]="adress" (ngSubmit)="check()" class="form capitalize grid md:grid-cols-3 grid-cols-1 justify-center items-center gap-4 p-4">
+
+    <mat-form-field class="example-full-width">
+        <mat-label for="cep">cep</mat-label>
+        <input id="cep" matInput placeholder="99999-999" formControlName="cep">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label for="state">state</mat-label>
+        <input id="state" matInput placeholder="São Paulo" formControlName="state">
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label for="neighborhood">neighborhood</mat-label>
+        <input id="neighborhood" matInput placeholder="Broklin" formControlName="neighborhood">
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width md:col-span-2 col-span-1">
+        <mat-label for="street">street</mat-label>
+        <input id="street" matInput placeholder="XV de Novembo" formControlName="street">
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label for="number">number</mat-label>
+        <input id="number" matInput placeholder="02" formControlName="number">
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width md:col-span-2 col-span-1">
+        <mat-label for="complement">complement</mat-label>
+        <input id="complement" matInput placeholder="Comercio" formControlName="complement">
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label for="receiver">receiver</mat-label>
+        <input id="receiver" matInput placeholder="Mary" formControlName="receiver">
+    </mat-form-field>
+
+    <button class="hidden">Login</button>
+</form>
