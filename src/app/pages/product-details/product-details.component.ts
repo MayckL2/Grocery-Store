@@ -6,11 +6,12 @@ import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { Tag } from 'primeng/tag';
 import { Dialog } from 'primeng/dialog';
+import { SectionNavigationComponent } from "../../components/section-navigation/section-navigation.component";
 
 @Component({
   standalone: true,
   selector: 'app-product-details',
-  imports: [RouterLink, RouterModule, ButtonModule, CommonModule, Tag, Dialog],
+  imports: [RouterLink, RouterModule, ButtonModule, CommonModule, Tag, Dialog, SectionNavigationComponent],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'
 })
