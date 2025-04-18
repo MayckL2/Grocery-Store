@@ -12,10 +12,10 @@ export const serverRoutes: ServerRoute[] = [
   },
   {
     path: "cart/",
-    renderMode: RenderMode.Client
+    renderMode: RenderMode.Prerender
   },
   {
-    path: "buy/:id",
-    renderMode: RenderMode.Client
+    path: "payment",
+    renderMode: RenderMode.Prerender
   }
 ];
