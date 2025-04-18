@@ -5,10 +5,11 @@ import { InfoComponent } from "./components/info/info.component";
 import { LoadingComponent } from "./components/loading/loading.component";
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { interval, take } from 'rxjs';
+import { FooterComponent } from "./components/footer/footer.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, InfoComponent, LoadingComponent, CommonModule],
+  imports: [RouterOutlet, HeaderComponent, InfoComponent, LoadingComponent, CommonModule, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
