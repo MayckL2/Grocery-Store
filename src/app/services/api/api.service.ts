@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ICompra } from '../../models/compra';
+import { IBuy } from '../../models/IBuy';
 import { BehaviorSubject } from 'rxjs';
 import { IProduct } from '../../models/IProduct';
 import stock from '../../../../database/stock.json';
@@ -8,9 +8,10 @@ import stock from '../../../../database/stock.json';
   providedIn: 'root',
 })
 export class ApiService {
-  private carrinho: ICompra[] = [];
+  private carrinho: IBuy[] = [];
   // OBSERVABLE
   private ProdutoAdicionado$ = new BehaviorSubject<number>(this.carrinho.length);
+  private purchase: IProduct[] = []
 
   // FETCH DATA FROM FAKE API
   fetchApi() {
@@ -49,15 +50,15 @@ export class ApiService {
   }
 
   // CALC CART QUANTITY
-  calcCartQuantity(itens: ICompra[]) {
+  calcCartQuantity(itens: IBuy[]) {
     let quantity = 0;
-    itens.map((e: ICompra) => (quantity += e.quantity));
+    itens.map((e: IBuy) => (quantity += e.quantity));
     return quantity;
   }
 
   // ADD PRODUCT IN CART
   addProduct(produto: IProduct, quantity: number = 1) {
-    const produtoCompra: ICompra = {
+    const produtoCompra: IBuy = {
       id: produto.id,
       name: produto.name,
       image: produto.image,
@@ -84,8 +85,8 @@ export class ApiService {
 
   // CONCAT SAME ITENS AND SOME QUANTITY
   ConcatItemsQuantity() {
-    let items: ICompra[] = [];
-    let buy: ICompra | undefined;
+    let items: IBuy[] = [];
+    let buy: IBuy | undefined;
     let index: number
     
     for (let i = 0; i < this.carrinho.length; i++) {
@@ -98,5 +99,12 @@ export class ApiService {
       }
     }
     return items;
+  }
+
+  // ADD ITEMS IN PURCHASE
+  addPurchase(id: number){
+    let item = this.getProduct(id);
+    this.purchase.push(item);
+    return this.purchase
   }
 }

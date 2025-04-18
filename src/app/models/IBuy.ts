@@ -1,18 +1,19 @@
-export interface IProduct {
+export interface IBuy {
     id: number,
     name: string,
     price: number,
-    discount?: number,
+    discount: number
     image: string,
     inStock: number,
-    category: string,
+    quantity: number,
 }
 
-export const productDefault: IProduct = {
+export const BuyDefault: IBuy = {
     id: 0,
     name: "",
     price: 0,
+    discount: 0,
     image: "",
     inStock: 0,
-    category: ""
+    quantity: 0
 }
