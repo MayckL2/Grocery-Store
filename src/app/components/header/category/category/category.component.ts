@@ -19,5 +19,9 @@ export interface Options {
 export class CategoryComponent {
   name = input<string>();
   options = input<Options[] | undefined>();
+  data = {
+    name: this.name(),
+    options: this.options()
+  }
   // options: any = input<Options[]>();
 }

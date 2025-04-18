@@ -1,5 +1,5 @@
 import { Component, inject, Input, input, OnInit, TemplateRef } from '@angular/core';
-import { IProduct } from '../../models/IProduct';
+import { IProduct, productDefault } from '../../models/IProduct';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api/api.service';
@@ -12,7 +12,8 @@ import { ProductService } from '../../services/product/product.service';
   styleUrl: './product.component.scss',
 })
 export class ProductComponent implements OnInit {
-  productProp = input<IProduct>();
+  productProp = input<IProduct>(productDefault);
+  dataProduct: IProduct = productDefault;
   discountPrice: number | undefined;
   // STORE PERMISSIONS FOR SHOWING SOME COMPONENTS
   conditions = {
@@ -50,6 +51,7 @@ export class ProductComponent implements OnInit {
       this.discountPrice = this.productService.calculatePrice(this.productProp()!.price, this.productProp()?.discount)
     } 
 
+    this.dataProduct = this.productProp();
     // console.log(this.productProp.name, this.conditions)
   }
 }

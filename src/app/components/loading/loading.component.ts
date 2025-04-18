@@ -10,4 +10,5 @@ import { ProgressSpinner } from 'primeng/progressspinner';
 export class LoadingComponent {
   steps: number = 0;
   message = input('Loading...');
+  dataMessage = this.message()
 }

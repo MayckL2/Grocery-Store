@@ -1,12 +1,14 @@
 <div class="flex p-4 gap-4 justify-between outline outline-2 outline-green-300 rounded-xl relative h-max">
     <div class="flex gap-4">
-        <img [src]="product()?.image" [alt]="product()?.name" class="w-32 object-contain outline outline-2 outline-green-300 rounded-xl">
+        <a [routerLink]="['/product/'+ data.id]">
+            <img [src]="data.image" [alt]="data.name" class="w-32 object-contain outline outline-2 outline-green-300 rounded-xl">
+        </a>
         
         <div class="flex flex-col">
-            <p class="text-xl font-semibold">{{ product()?.name }}</p>
+            <p class="text-xl font-semibold">{{ data.name }}</p>
             <span class="text-lg">{{ price | currency }}</span>
-            <span class="text-xs px-4 py-2 rounded-xl bg-green-300 text-green-800 w-fit" *ngIf="product()!.quantity > 1">{{ product()?.quantity }}x</span>
-            <!-- <span class="text-xs line-through">{{ product()?.price | currency }}</span> -->
+            <span class="text-xs px-4 py-2 rounded-xl bg-green-300 text-green-800 w-fit" *ngIf="product()!.quantity > 1">{{ data.quantity }}x</span>
+            <!-- <span class="text-xs line-through">{{ data.price | currency }}</span> -->
         </div>
     </div>
 
@@ -15,10 +17,10 @@
 
         <!-- <div class="flex gap-2 items-center">
             <p-button icon="pi pi-minus" [rounded]="true" size="small"/>
-            <span>{{ product()?.quantity }}</span>
+            <span>{{ data.quantity }}</span>
             <p-button icon="pi pi-plus" [rounded]="true" size="small"/>
         </div> -->
     </div>
 
-    <!-- <p-tag severity="info" [value]="product()?.quantity?.toString()" class="absolute top-4 right-4 "/> -->
+    <!-- <p-tag severity="info" [value]="data.quantity?.toString()" class="absolute top-4 right-4 "/> -->
 </div>

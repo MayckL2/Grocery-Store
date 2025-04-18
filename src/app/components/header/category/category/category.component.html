@@ -1,10 +1,10 @@
 <div>
     <!-- BUTTON -->
     <button *ngIf="options" class="bg-stone-100 p-4 rounded "
-    mat-flat-button [matMenuTriggerFor]="menu">{{ name() }}</button>
+    mat-flat-button [matMenuTriggerFor]="menu">{{ data.name }}</button>
     <!-- BUTTON OPTIONS -->
     <mat-menu #menu="matMenu">
-        <button *ngFor="let cat of options()" mat-menu-item>
+        <button *ngFor="let cat of data.options" mat-menu-item>
             {{cat.name}}
         </button>
     </mat-menu>

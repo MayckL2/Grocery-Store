@@ -1,19 +1,20 @@
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Component, EventEmitter, inject, input, OnInit, Output } from '@angular/core';
-import { ICompra } from '../../models/compra';
 import { Button } from 'primeng/button';
 import { ProductService } from '../../services/product/product.service';
 import { ApiService } from '../../services/api/api.service';
-import { Tag } from 'primeng/tag';
+import { RouterModule } from '@angular/router';
+import { BuyDefault, IBuy } from '../../models/IBuy';
 
 @Component({
   selector: 'app-cart-item',
-  imports: [CurrencyPipe, Button, Tag, CommonModule],
+  imports: [CurrencyPipe, Button, CommonModule, RouterModule],
   templateUrl: './cart-item.component.html',
   styleUrl: './cart-item.component.scss',
 })
 export class CartItemComponent implements OnInit{
-  product = input<ICompra>();
+  product = input<IBuy>(BuyDefault);
+  data: IBuy = BuyDefault;
   quantity: number = 0;
   productService = inject(ProductService);
   service = inject(ApiService);
@@ -21,7 +22,7 @@ export class CartItemComponent implements OnInit{
   @Output() removeItem: EventEmitter<any> = new EventEmitter()
 
   handlePrice(){
-    this.price = this.productService.calculatePrice(this.product()!.price, this.product()?.discount);
+    this.price = this.productService.calculatePrice(this.product()!.price, this.product()?.discount, this.product()?.quantity);
     console.log(this.product()?.discount);
   }
 
@@ -38,7 +39,6 @@ export class CartItemComponent implements OnInit{
   }
 
   removeProduct(){
-    // this.service.removeProduct(this.product()!.id)
     this.removeItem.emit()
   }
 
@@ -46,5 +46,6 @@ export class CartItemComponent implements OnInit{
 
   ngOnInit(): void {
     this.handlePrice();
+    this.data = this.product();
   }
 }
