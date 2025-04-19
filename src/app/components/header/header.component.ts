@@ -1,5 +1,5 @@
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, inject, Input, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { MatIconModule } from '@angular/material/icon';
@@ -28,7 +28,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
   imageLogo = '/assets/FreshcartLogo.png';
 
   products: IProduct[] = [];
@@ -43,6 +43,8 @@ export class HeaderComponent implements OnInit {
   // CART QUANTITY
   cartQtt$ = this.observableService.getCartQuanity();
 
+  constructor(private cd: ChangeDetectorRef) {}
+
   ngOnInit(): void {
     this.products = this.observableService.fetchApi().products;
     // console.log(this.products.filter(e => e.category == "fruits" ? console.log(e) : console.log("not fruit")));
@@ -56,4 +58,8 @@ export class HeaderComponent implements OnInit {
   checkCategory(name: string, arr: Product[]){
     
   } 
+
+  ngAfterViewInit() {
+    this.cd.detectChanges(); // Força uma verificação manual
+  }
 }
