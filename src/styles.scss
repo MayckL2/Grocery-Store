@@ -16,6 +16,24 @@
     filled-container-color: #f5f5f4,
     filled-label-text-color: black,
   ));
+
+  --primary-color: #56b32e;
+
+  --p-stepper-steppanel-background: #dcfce7 !important;
+  --p-stepper-step-number-background: #dcfce7 !important;
+  --p-stepper-step-number-active-background: #56b32e !important;
+  --p-stepper-step-number-active-border-color: #264e14 !important;
+  --p-stepper-step-number-active-color: #264e14 !important;
+}
+
+body{
+  .p-stepper {
+    color: var(--secondary-color) !important;
+  }
+  
+  .p-stepper-separator {
+    background: var(--primary-color) !important;
+  }
 }
 
 html {
@@ -45,4 +63,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Remove as setinhas no Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove as setinhas no Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
