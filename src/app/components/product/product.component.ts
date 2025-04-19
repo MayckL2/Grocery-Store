@@ -38,7 +38,7 @@ export class ProductComponent implements OnInit {
 
     this.service.addProduct(this.productProp()!);
 
-    console.log(this.service.getCartQuanity().value);
+    console.log(this.service.getCartQuanity());
   }
 
   ngOnInit(): void {

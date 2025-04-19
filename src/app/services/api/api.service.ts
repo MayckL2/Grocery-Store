@@ -46,7 +46,7 @@ export class ApiService {
   // RETURN CART QUANTITY
   getCartQuanity() {
     // RETURN OBSERVABLE VALUE
-    return this.ProdutoAdicionado$;
+    return this.ProdutoAdicionado$.asObservable();
   }
 
   // CALC CART QUANTITY
