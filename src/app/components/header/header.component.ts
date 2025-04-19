@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
   snacks: Options[] | undefined = [{ name: 'snacks', destination: '#' }];
 
   // CART QUANTITY
-  cartQtt$ = this.observableService.obterQuantidadeCarrinho();
+  cartQtt$ = this.observableService.getCartQuanity();
 
   ngOnInit(): void {
     this.products = this.observableService.fetchApi().products;

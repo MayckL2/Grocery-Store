@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   // Nova forma de instanciar um service com signal
   observableService = inject(ApiService);
 
-  qtdCarrinho$ = this.observableService.obterQuantidadeCarrinho();
+  qtdCarrinho$ = this.observableService.getCartQuanity();
   // Variavel para adiministrar os inscritos no observable
   // subs = new Subscription();
 

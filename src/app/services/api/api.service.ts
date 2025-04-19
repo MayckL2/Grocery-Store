@@ -10,7 +10,7 @@ import stock from '../../../../database/stock.json';
 export class ApiService {
   private carrinho: IBuy[] = [];
   // OBSERVABLE
-  private ProdutoAdicionado$ = new BehaviorSubject<number>(this.carrinho.length);
+  protected ProdutoAdicionado$ = new BehaviorSubject<number>(this.carrinho.length);
   private purchase: IProduct[] = []
 
   // FETCH DATA FROM FAKE API
@@ -44,7 +44,7 @@ export class ApiService {
   }
 
   // RETURN CART QUANTITY
-  obterQuantidadeCarrinho() {
+  getCartQuanity() {
     // RETURN OBSERVABLE VALUE
     return this.ProdutoAdicionado$;
   }
