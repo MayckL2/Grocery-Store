@@ -22,7 +22,7 @@
 
             <a routerLink="cart" routerLinkActive="active" ariaCurrentWhenActive="page" class="cursor-pointer">
                 <div class="flex place-items-center gap-2">
-                    <i class="pi pi-shopping-cart text-green-500" pBadge value="{{cartQtt$ | async }}" badgeSize="small"></i>
+                    <i class="pi pi-shopping-cart text-green-500" pBadge value="{{ cartQtt$ | async }}" badgeSize="small"></i>
                     <p>Cart</p>
                 </div>
             </a>
