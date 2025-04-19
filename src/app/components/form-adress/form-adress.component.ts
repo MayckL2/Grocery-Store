@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IAdress } from '../../models/IAdress';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ProductService } from '../../services/product/product.service';
+import { PaymentService } from '../../services/payment/payment.service';
 
 @Component({
   selector: 'app-form-adress',
@@ -13,24 +15,28 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   templateUrl: './form-adress.component.html',
   styleUrl: './form-adress.component.scss',
 })
-export class FormAdressComponent {
+export class FormAdressComponent{
   @Output() adressData = new EventEmitter();
+  data: IAdress | undefined
   adress: FormGroup;
+  product = inject(ProductService);
+  payment = inject(PaymentService);
 
   constructor(private formBuilder: FormBuilder) {
+    this.data = this.payment.getAdress();
+
     this.adress = this.formBuilder.group({
-      cep: ['', [Validators.required]],
-      state: ['', [Validators.required]],
-      neighborhood: ['', [Validators.required]],
-      street: ['', [Validators.required]],
-      number: ['', [Validators.required]],
-      complement: ['', [Validators.required]],
-      receiver: ['', [Validators.required]],
+      cep: [this.data?.cep ?? '', [Validators.required]],
+      state: [this.data?.state ?? '', [Validators.required]],
+      neighborhood: [this.data?.neighborhood ?? '', [Validators.required]],
+      street: [this.data?.street ?? '', [Validators.required]],
+      number: [this.data?.number ?? '', [Validators.required]],
+      complement: [this.data?.complement ?? '', [Validators.required]],
+      receiver: [this.data?.receiver ?? '', [Validators.required]],
     });
   }
 
   check(){
-    // console.log(this.adress.value);
     this.adressData.emit(this.adress.value);
   }
 }

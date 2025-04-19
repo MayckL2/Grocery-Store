@@ -7,6 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { Location } from '@angular/common';
 import { FormAdressComponent } from "../../components/form-adress/form-adress.component";
 import { IAdress } from '../../models/IAdress';
+import { PaymentService } from '../../services/payment/payment.service';
 
 @Component({
   selector: 'app-payment',
@@ -17,7 +18,14 @@ import { IAdress } from '../../models/IAdress';
 export class PaymentComponent {
   service = inject(ApiService);
   route = inject(ActivatedRoute);
+  payment = inject(PaymentService);
   productData: IProduct | undefined;
+  disableNext = {
+    one: true,
+    two: true,
+    three: true,
+    four: true
+  };
 
   constructor(private location: Location) { }
 
@@ -26,7 +34,11 @@ export class PaymentComponent {
   }
 
   colectAdress(adress: IAdress){
-    console.log(adress);
+    console.log(this.payment.validateAdress(adress));
+    if(this.payment.validateAdress(adress) == true){
+      this.disableNext.one = false;
+      this.payment.saveAdress(adress);
+    }
   }
 
   ngOnInit(): void {
