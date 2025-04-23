@@ -60,7 +60,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   } 
 
   ngAfterViewInit() {
-    cartQtt$ = this.observableService.getCartQuanity();
+    this.cartQtt$ = this.observableService.getCartQuanity();
     this.cd.detectChanges(); // Força uma verificação manual
   }
 }
