@@ -1,5 +1,5 @@
 <div class="md:px-20 sm:px-8 px-4 py-6 mt-40">
-    <p-stepper [value]="1" [linear]="true">
+    <p-stepper [value]="step" [linear]="true">
         <p-step-item [value]="1">
             <p-step>Adress</p-step>
             <p-step-panel>
@@ -12,7 +12,7 @@
                     </div>
                     <div class="flex justify-between py-6">
                         <p-button label="Home Page" icon="pi pi-home" iconPos="left" severity="warn" (onClick)="back()" />
-                        <p-button label="Next" [disabled]="disableNext.one" (onClick)="activateCallback(2)" />
+                        <p-button label="Next" [disabled]="disableNext.one" (onClick)="nextStep()" />
                     </div>
                 </ng-template>
             </p-step-panel>
@@ -25,12 +25,12 @@
                     <div class="flex flex-col">
                         <div
                             class="border-2 border-dashed border-green-200 rounded bg-green-50 flex-auto flex justify-center items-center font-medium">
-                            Content II
+                            <app-payment-method (nextPayment)="nextStep()" class="flex justify-center flex-wrap sm:gap-8 gap-4 md:p-16 sm:p-12 p-4"></app-payment-method>
                         </div>
                     </div>
                     <div class="flex py-6 gap-2">
-                        <p-button label="Back" severity="secondary" (onClick)="activateCallback(1)" />
-                        <p-button label="Next" (onClick)="activateCallback(3)" />
+                        <p-button label="Back" severity="secondary" (onClick)="previousStep()" />
+                        <!-- <p-button label="Next" (onClick)="activateCallback(3)" /> -->
                     </div>
                 </ng-template>
             </p-step-panel>
@@ -42,13 +42,13 @@
                 <ng-template #content let-activateCallback="activateCallback">
                     <div class="flex flex-col">
                         <div
-                            class="border-2 border-dashed border-green-200 rounded bg-green-50 flex-auto flex justify-center items-center font-medium">
-                            Content III
+                            class="border-2 border-dashed border-green-200 rounded  flex-auto flex  items-center font-medium">
+                            <app-form-confirmation class="grid gap-4 m-4 w-full"></app-form-confirmation>
                         </div>
                     </div>
-                    <div class="py-6">
-                        <p-button label="Back" severity="secondary" (onClick)="activateCallback(2)" />
-                        <p-button label="Next" (onClick)="activateCallback(4)" />
+                    <div class="py-6 flex justify-between">
+                        <p-button label="Back" severity="secondary" (onClick)="previousStep()" />
+                        <p-button label="Next" (onClick)="nextStep()" />
                     </div>
                 </ng-template>
             </p-step-panel>
@@ -61,11 +61,18 @@
                     <div class="flex flex-col">
                         <div
                             class="border-2 border-dashed border-green-200 rounded bg-green-50 flex-auto flex justify-center items-center font-medium">
-                            Content IIII
+                            <div [ngSwitch]="method" class="p-4">
+                                <app-pix-payment *ngSwitchCase="'pix'"></app-pix-payment>
+                                <app-card-payment *ngSwitchCase="'debit'"></app-card-payment>
+                                <app-card-payment *ngSwitchCase="'credit'"></app-card-payment>
+                                <app-card-payment *ngSwitchCase="'voucher'"></app-card-payment>
+                                <app-bank-slip-payment *ngSwitchCase="'bankSlip'"></app-bank-slip-payment>
+                                <p *ngSwitchDefault>Caso padrão</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="py-6">
-                        <p-button label="Back" severity="secondary" (onClick)="activateCallback(3)" />
+                    <div class="py-6 flex justify-between">
+                        <p-button label="Back" severity="secondary" (onClick)="previousStep()" />
                         <p-button label="Finish" severity="success" />
                     </div>
                 </ng-template>
