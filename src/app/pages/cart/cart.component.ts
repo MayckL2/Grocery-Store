@@ -8,6 +8,7 @@ import { ButtonModule } from 'primeng/button';
 import { CartItemComponent } from "../../components/cart-item/cart-item.component";
 import { ProductService } from '../../services/product/product.service';
 import { SectionNavigationComponent } from "../../components/section-navigation/section-navigation.component";
+import { CartService } from '../../services/cart/cart.service';
 
 interface ICart{
   name: string,
@@ -29,10 +30,11 @@ export class CartComponent implements OnInit{
   deliveryValue: number = 0;
   total: number= 0;
   prices: ICart[] = [];
+  cart = inject(CartService);
 
   // CALCULATE DELIVERY VALUE
   calcDelivery(){
-    this.deliveryValue = this.service.getCart().length;
+    this.deliveryValue = this.cart.getCart().length;
   }
 
   // CALCULATE TOTAL VALUE
@@ -58,7 +60,7 @@ export class CartComponent implements OnInit{
   }
 
   remove(id: number){
-    this.service.removeProduct(id);
+    this.cart.removeProduct(id);
     this.processCart();
     console.log("removed item " + id);
   }
@@ -66,12 +68,12 @@ export class CartComponent implements OnInit{
   // PROCESS CART ITENS
   processCart(){
     // this.products = this.service.getCart()
-    this.products = this.service.ConcatItemsQuantity()
+    this.products = this.cart.ConcatItemsQuantity()
     this.handlePrice(this.products)
     this.calcDelivery();
     this.calcTotal();
     // console.log(this.products);
-    console.log(this.service.ConcatItemsQuantity())
+    console.log(this.cart.ConcatItemsQuantity())
   }
   
   ngOnInit(): void {

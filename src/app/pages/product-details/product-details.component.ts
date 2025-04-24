@@ -3,10 +3,12 @@ import { ApiService } from '../../services/api/api.service';
 import { ActivatedRoute, RouterLink, RouterModule } from '@angular/router';
 import { IProduct } from '../../models/IProduct';
 import { ButtonModule } from 'primeng/button';
-import { CommonModule } from '@angular/common';
+import { CommonModule, ViewportScroller } from '@angular/common';
 import { Tag } from 'primeng/tag';
 import { Dialog } from 'primeng/dialog';
 import { SectionNavigationComponent } from "../../components/section-navigation/section-navigation.component";
+import { PaymentService } from '../../services/payment/payment.service';
+import { CartService } from '../../services/cart/cart.service';
 
 @Component({
   standalone: true,
@@ -23,6 +25,9 @@ export class ProductDetailsComponent implements OnInit{
   delivery: string = "now"
   visibleDialog: boolean = false;
   inStock: boolean = true;
+  viewPort = inject(ViewportScroller);
+  payment = inject(PaymentService);
+  cart = inject(CartService);
 
   addQuantity(){
     if(this.quantity < this.productData!.inStock){
@@ -37,8 +42,16 @@ export class ProductDetailsComponent implements OnInit{
   }
 
   handleCart(){
-    this.service.addProduct(this.productData!, this.quantity);
+    this.cart.addProduct(this.productData!, this.quantity);
     this.visibleDialog = true
+  }
+
+  scrollToTop() {
+    this.viewPort.scrollToPosition([0, 0]);
+  }
+
+  handleBuy(){
+    if(this.productData) this.payment.saveProduct(this.productData);
   }
 
   ngOnInit(): void {
@@ -51,5 +64,7 @@ export class ProductDetailsComponent implements OnInit{
     // DEFINING DELIVERY TIME
     // TO BE CALCULETED BY DISTANCE
     this.delivery = `${ 2 } hours`
+
+    this.scrollToTop();
   }
 }

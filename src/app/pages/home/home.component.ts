@@ -5,6 +5,7 @@ import { ApiService } from '../../services/api/api.service';
 import { IProduct } from '../../models/IProduct';
 import { Carousel2Component } from "../../components/carousel2/carousel2.component";
 import { RouterModule } from '@angular/router';
+import { CartService } from '../../services/cart/cart.service';
 
 @Component({
   standalone: true,
@@ -23,13 +24,14 @@ export class HomeComponent implements OnInit {
   discountProducts: IProduct[] = [];
   // Nova forma de instanciar um service com signal
   observableService = inject(ApiService);
+  cart = inject(CartService);
 
-  qtdCarrinho$ = this.observableService.getCartQuanity();
+  qtdCarrinho$ = this.cart.cart$;
   // Variavel para adiministrar os inscritos no observable
   // subs = new Subscription();
 
   adicionarProduto(produto: IProduct) {
-    this.observableService.addProduct(produto);
+    this.cart.addProduct(produto);
     // console.log(this.qtdCarrinho$);
   }
 

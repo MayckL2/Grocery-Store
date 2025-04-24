@@ -43,7 +43,7 @@
 
         <div class="flex gap-2 justify-end" *ngIf="this.inStock">
             <p-button label="Add Cart" severity="warn" (click)="handleCart()"/>
-            <a routerLink="/payment" routerLinkActive="active" ariaCurrentWhenActive="page">
+            <a (click)="handleBuy()" routerLink="/payment" routerLinkActive="active" ariaCurrentWhenActive="page">
                 <p-button label="Buy">
                 </p-button>
             </a>

@@ -4,6 +4,7 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api/api.service';
 import { ProductService } from '../../services/product/product.service';
+import { CartService } from '../../services/cart/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -23,6 +24,7 @@ export class ProductComponent implements OnInit {
   }
   service = inject(ApiService);
   productService = inject(ProductService);
+  cart = inject(CartService);
 
   constructor(private router: Router) {}
 
@@ -36,9 +38,9 @@ export class ProductComponent implements OnInit {
     // STOP FATHER COMPONENT EVENT FROM PROPAGATING
     event.stopPropagation();
 
-    this.service.addProduct(this.productProp()!);
+    this.cart.addProduct(this.productProp()!);
 
-    console.log(this.service.getCartQuanity().value);
+    console.log(this.cart.getCart().length);
   }
 
   ngOnInit(): void {
