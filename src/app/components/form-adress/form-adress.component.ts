@@ -36,7 +36,15 @@ export class FormAdressComponent{
     });
   }
 
-  check(){
+  ngOnInit() {
+    this.adress.statusChanges.subscribe(status => {
+      if (status === 'VALID') {
+        this.formularioValidado();
+      }
+    });
+  }
+
+  formularioValidado() {
     this.adressData.emit(this.adress.value);
   }
 }
