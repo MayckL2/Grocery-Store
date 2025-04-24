@@ -12,6 +12,7 @@ import { ApiService } from '../../services/api/api.service';
 import { BadgeModule } from 'primeng/badge';
 import { FloatLabelModule } from "primeng/floatlabel"
 import { RouterModule } from '@angular/router';
+import { CartService } from '../../services/cart/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -33,6 +34,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   products: IProduct[] = [];
   observableService = inject(ApiService);
+  cart = inject(CartService);
 
   // OPTIONS CATEGORY
   fruits: Options[] | undefined = [{ name: 'fruits', destination: '#' }];
@@ -41,12 +43,12 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   snacks: Options[] | undefined = [{ name: 'snacks', destination: '#' }];
 
   // CART QUANTITY
-  cartQtt$ = this.observableService.getCartQuanity();
+  cartQtt$ = this.cart.cart$;
 
   constructor(private cd: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.products = this.observableService.fetchApi().products;
+    // this.products = this.observableService.fetchApi().products;
     // console.log(this.products.filter(e => e.category == "fruits" ? console.log(e) : console.log("not fruit")));
   
     // let test
