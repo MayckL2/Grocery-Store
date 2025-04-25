@@ -1,0 +1,6 @@
+@for (option of options; track $index) {
+    <div class="flex flex-col gap-2 justify-center ">
+        <img [src]="'categories/' + option.label + '.png'" [alt]="option.label">
+        <p>{{ option.label }}</p>
+    </div>
+}

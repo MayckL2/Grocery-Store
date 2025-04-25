@@ -6,6 +6,7 @@ import { IProduct } from '../../models/IProduct';
 import { Carousel2Component } from "../../components/carousel2/carousel2.component";
 import { RouterModule } from '@angular/router';
 import { CartService } from '../../services/cart/cart.service';
+import { OptionsCategoryComponent } from "../../components/options-category/options-category.component";
 
 @Component({
   standalone: true,
@@ -14,7 +15,8 @@ import { CartService } from '../../services/cart/cart.service';
     CommonModule,
     SessionCategoryComponent,
     Carousel2Component,
-    RouterModule
+    RouterModule,
+    OptionsCategoryComponent
 ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -27,8 +29,6 @@ export class HomeComponent implements OnInit {
   cart = inject(CartService);
 
   qtdCarrinho$ = this.cart.cart$;
-  // Variavel para adiministrar os inscritos no observable
-  // subs = new Subscription();
 
   adicionarProduto(produto: IProduct) {
     this.cart.addProduct(produto);
@@ -37,17 +37,7 @@ export class HomeComponent implements OnInit {
 
   // Adicionando incrito na variavel
   ngOnInit(): void {
-    this.products = this.observableService.getAll().products;
+    this.products = this.observableService.getAll();
     this.discountProducts = this.observableService.getWithDiscount();
-
-    // const subContador = this.qtdCarrinho$.subscribe((value) => {
-    //   console.log('valor emitido:', value);
-    // });
   }
-
-  // Desinscrevendo todos os inscritos quando o compronente for destruido
-  // ngOnDestroy(): void {
-  //   this.subs.unsubscribe();
-  //   console.log('Observable destruido');
-  // }
 }
