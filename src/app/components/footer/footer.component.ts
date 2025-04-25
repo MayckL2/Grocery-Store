@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ProductService } from '../../services/product/product.service';
 import { CommonModule } from '@angular/common';
+import { ApiService } from '../../services/api/api.service';
 
 @Component({
   selector: 'app-footer',
@@ -10,8 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent implements OnInit{
-  productService = inject(ProductService);
-  categories = this.productService.getCategories();
+  api = inject(ApiService);
+  categories = this.api.getCategories();
   servicesOptions = [
     "About Us",
     "Terms & Conditions",
