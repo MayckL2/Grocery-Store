@@ -3,25 +3,33 @@ import { IBuy } from '../../models/IBuy';
 import { BehaviorSubject } from 'rxjs';
 import { IProduct } from '../../models/IProduct';
 import stock from '../../../../database/stock.json';
+import { ICategory } from '../../models/ICategory';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
+  private products: IProduct[] = [];
+  private categories: ICategory[] = [];
+
+  constructor(){
+    this.fetchApi();
+  }
 
   // FETCH DATA FROM FAKE API
-  fetchApi() {
-    return stock;
+  private fetchApi() {
+    this.products = stock.products;
+    this.categories = stock.categories;
   }
 
   // RETURN ALL PRODUCTS
   getAll() {
-    return this.fetchApi();
+    return this.products;
   }
 
   // RETURN ONE PRODUCT
   getProduct(id: number) {
-    let data: IProduct[] = this.fetchApi().products;
+    let data: IProduct[] = this.products ?? [];
     let product: IProduct[] = data.filter((e: IProduct) => e.id == id);
 
     return product[0];
@@ -29,10 +37,11 @@ export class ApiService {
 
   // RETURN ALL PRODUCT WITH DISCOUNT
   getWithDiscount() {
-    let all = this.fetchApi();
-    let haveDiscount = all.products.filter((e) => e.discount);
-
+    let haveDiscount = this.products?.filter((e) => e.discount);
     return haveDiscount;
   }
 
+  getCategories(){
+    return this.categories;
+  }
 }

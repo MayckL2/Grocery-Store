@@ -9,6 +9,7 @@ import { Dialog } from 'primeng/dialog';
 import { SectionNavigationComponent } from "../../components/section-navigation/section-navigation.component";
 import { PaymentService } from '../../services/payment/payment.service';
 import { CartService } from '../../services/cart/cart.service';
+import { UxService } from '../../services/ux/ux.service';
 
 @Component({
   standalone: true,
@@ -21,13 +22,13 @@ export class ProductDetailsComponent implements OnInit{
   service = inject(ApiService);
   route = inject(ActivatedRoute);
   productData: IProduct | undefined;
-  quantity: number = 1
+  quantity: number = 1;
   delivery: string = "now"
   visibleDialog: boolean = false;
   inStock: boolean = true;
-  viewPort = inject(ViewportScroller);
   payment = inject(PaymentService);
   cart = inject(CartService);
+  ux = inject(UxService);
 
   addQuantity(){
     if(this.quantity < this.productData!.inStock){
@@ -46,10 +47,6 @@ export class ProductDetailsComponent implements OnInit{
     this.visibleDialog = true
   }
 
-  scrollToTop() {
-    this.viewPort.scrollToPosition([0, 0]);
-  }
-
   handleBuy(){
     if(this.productData) this.payment.saveProduct(this.productData);
   }
@@ -65,6 +62,6 @@ export class ProductDetailsComponent implements OnInit{
     // TO BE CALCULETED BY DISTANCE
     this.delivery = `${ 2 } hours`
 
-    this.scrollToTop();
+    this.ux.scrollToTop();
   }
 }

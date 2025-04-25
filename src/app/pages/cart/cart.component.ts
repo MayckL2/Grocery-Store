@@ -9,6 +9,7 @@ import { CartItemComponent } from "../../components/cart-item/cart-item.componen
 import { ProductService } from '../../services/product/product.service';
 import { SectionNavigationComponent } from "../../components/section-navigation/section-navigation.component";
 import { CartService } from '../../services/cart/cart.service';
+import { UxService } from '../../services/ux/ux.service';
 
 interface ICart{
   name: string,
@@ -31,6 +32,7 @@ export class CartComponent implements OnInit{
   total: number= 0;
   prices: ICart[] = [];
   cart = inject(CartService);
+  ux = inject(UxService);
 
   // CALCULATE DELIVERY VALUE
   calcDelivery(){
@@ -77,6 +79,7 @@ export class CartComponent implements OnInit{
   }
   
   ngOnInit(): void {
+    this.ux.scrollToTop()
     this.processCart();
   }
 }
