@@ -1,5 +1,5 @@
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { AfterViewInit, ChangeDetectorRef, Component, inject, Input, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,6 +13,7 @@ import { BadgeModule } from 'primeng/badge';
 import { FloatLabelModule } from "primeng/floatlabel"
 import { RouterModule } from '@angular/router';
 import { CartService } from '../../services/cart/cart.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -29,9 +30,8 @@ import { CartService } from '../../services/cart/cart.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
+export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   imageLogo = '/assets/FreshcartLogo.png';
-
   products: IProduct[] = [];
   observableService = inject(ApiService);
   cart = inject(CartService);
@@ -43,18 +43,18 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   snacks: Options[] | undefined = [{ name: 'snacks', destination: '#' }];
 
   // CART QUANTITY
-  cartQtt$ = this.cart.cart$;
+  // cartQtt$ = this.cart.cart$;
+  cartQtt$: number = 0;
+  subs = new Subscription();
 
   constructor(private cd: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    // this.products = this.observableService.fetchApi().products;
-    // console.log(this.products.filter(e => e.category == "fruits" ? console.log(e) : console.log("not fruit")));
-  
-    // let test
-    // test = this.products.filter(e => {e.category == "fruits" ? return e : undefined});
-    
-    // console.log(test)
+    this.subs.add(
+      this.cart.cart$.subscribe(data => {
+        this.cartQtt$ = data;
+      })
+    )
   }
 
   checkCategory(name: string, arr: Product[]){
@@ -63,5 +63,10 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.cd.detectChanges(); // Força uma verificação manual
+  }
+
+  ngOnDestroy(): void {
+    // Importante: Limpar todas as subscriptions
+    this.subs.unsubscribe();
   }
 }

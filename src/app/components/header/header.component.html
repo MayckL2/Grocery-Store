@@ -21,8 +21,10 @@
             <span class="text-stone-500">|</span>
 
             <a routerLink="cart" routerLinkActive="active" ariaCurrentWhenActive="page" class="cursor-pointer">
-                <div class="flex place-items-center gap-2">
-                    <i class="pi pi-shopping-cart text-green-500" pBadge value="{{ cartQtt$ | async }}" badgeSize="small"></i>
+                <div class="flex place-items-center gap-2 relative">
+                    <p-badge *ngIf="cartQtt$ > 0" [value]="cartQtt$" badgeSize="small"
+                        class="absolute -top-2 left-1"/>
+                    <i class="pi pi-shopping-cart text-green-500"></i>
                     <p>Cart</p>
                 </div>
             </a>
