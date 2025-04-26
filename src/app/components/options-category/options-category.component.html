@@ -1,6 +1,14 @@
-@for (option of options; track $index) {
-    <div class="flex flex-col gap-2 justify-center ">
-        <img [src]="'categories/' + option.label + '.png'" [alt]="option.label">
-        <p>{{ option.label }}</p>
+<div class="w-min text-nowrap mb-2">
+    <h3 class="text-xl antialiased ">Shop From <span class="text-green-500">Top Categories</span></h3>
+</div>
+
+<div class="swiper-container overflow-x-hidden" appCarousel="config">
+    <div class="swiper-wrapper">
+        @for (option of options; track $index) {
+            <div class="swiper-slide sm:flex sm:flex-col grid gap-2 justify-center bg-green-50 p-4 rounded-xl">
+                <img class="w-20 object-fit" [src]="'categories/' + option.label + '.png'" [alt]="option.label">
+                <p class="px-4 text-center text-sm">{{ option.label }}</p>
+            </div>
+        }
     </div>
-}
+</div>
