@@ -48,7 +48,7 @@ export class ProductDetailsComponent implements OnInit{
   }
 
   handleBuy(){
-    if(this.productData) this.payment.saveProduct(this.productData);
+    if(this.productData) this.payment.saveProduct([this.productData]);
   }
 
   ngOnInit(): void {

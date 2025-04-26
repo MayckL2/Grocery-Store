@@ -7,6 +7,7 @@ import { Carousel2Component } from "../../components/carousel2/carousel2.compone
 import { RouterModule } from '@angular/router';
 import { CartService } from '../../services/cart/cart.service';
 import { OptionsCategoryComponent } from "../../components/options-category/options-category.component";
+import { UxService } from '../../services/ux/ux.service';
 
 @Component({
   standalone: true,
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
   // Nova forma de instanciar um service com signal
   observableService = inject(ApiService);
   cart = inject(CartService);
+  ux = inject(UxService);
 
   qtdCarrinho$ = this.cart.cart$;
 
@@ -39,5 +41,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.products = this.observableService.getAll();
     this.discountProducts = this.observableService.getWithDiscount();
+    this.ux.scrollToTop();
   }
 }

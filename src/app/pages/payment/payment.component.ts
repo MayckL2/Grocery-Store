@@ -72,6 +72,8 @@ export class PaymentComponent{
     if (this.payment.validateAdress(adress) == true) {
       this.disableNext.one = false;
       this.payment.saveAdress(adress);
+    }else{
+      this.disableNext.one = true
     }
   }
 

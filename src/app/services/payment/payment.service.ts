@@ -18,13 +18,18 @@ export class PaymentService {
 
   constructor() {}
 
-  saveProduct(product: IProduct) {
-    this.products.push(product);
+  saveProduct(product: IProduct[]) {
+    this.products = this.products?.concat(product);
     console.log(product);
   }
 
-  getProduct(): IProduct[] | undefined {
-    return this.products ? this.products : undefined;
+  getProduct(): IProduct[] {
+    console.log(this.products);
+    if(this.products){
+      return this.products
+    }else{
+      return []
+    }
   }
 
   saveAdress(adress: IAdress) {
@@ -40,8 +45,8 @@ export class PaymentService {
     if (!adress.cep) {
       return 'CEP is necessary...';
     }
-    if (!adress.state) {
-      return 'State is necessary...';
+    if (!adress.city) {
+      return 'City is necessary...';
     }
     if (!adress.neighborhood) {
       return 'Neighborhood is necessary...';
@@ -64,7 +69,6 @@ export class PaymentService {
 
   savePaymentMethod(method: IPayment) {
     this.paymentMethod = method;
-    console.log(this.paymentMethod)
   }
 
   getPaymentMethod(): IPayment | string {

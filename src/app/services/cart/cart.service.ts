@@ -1,14 +1,13 @@
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { IProduct } from '../../models/IProduct';
-import { IBuy } from '../../models/IBuy';
+import { IProduct, productDefault } from '../../models/IProduct';
 import { ApiService } from '../api/api.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private cart: IBuy[] = [];
+  private cart: IProduct[] = [];
   protected QuantityCart = new BehaviorSubject<number>(0);
   public cart$ = this.QuantityCart.asObservable();
   private purchase: IProduct[] = [];
@@ -19,25 +18,26 @@ export class CartService {
   }
 
   // CALC CART QUANTITY
-  calcCartQuantity(itens: IBuy[]) {
+  calcCartQuantity(itens: IProduct[]) {
     let quantity = 0;
-    itens.map((e: IBuy) => (quantity += e.quantity));
+    itens.map((e: IProduct) => (quantity += e.quantity ?? 0));
     return quantity;
   }
 
   // ADD PRODUCT IN CART
-  addProduct(produto: IProduct, quantity: number = 1) {
-    const produtoCompra: IBuy = {
-      id: produto.id,
-      name: produto.name,
-      image: produto.image,
-      price: produto.price,
-      inStock: produto.inStock,
+  addProduct(product: IProduct, quantity: number = 1) {
+    const productBuy: IProduct = {
+      id: product.id,
+      name: product.name,
+      image: product.image,
+      price: product.price,
+      inStock: product.inStock,
       quantity: quantity,
-      discount: produto.discount ?? 0,
+      discount: product.discount ?? 0,
+      category: product.category
     };
 
-    this.cart.push(produtoCompra);
+    this.cart.push(productBuy);
     // SEND THE QUANTITY OF ITENS FOR THE SUBCRIBES
     this.QuantityCart.next(this.calcCartQuantity(this.cart));
   }
@@ -54,8 +54,8 @@ export class CartService {
 
   // CONCAT SAME ITENS AND SOME QUANTITY
   ConcatItemsQuantity() {
-    let items: IBuy[] = [];
-    let buy: IBuy | undefined;
+    let items: IProduct[] = [];
+    let buy: IProduct | undefined;
     let index: number;
 
     for (let i = 0; i < this.cart.length; i++) {
@@ -64,7 +64,7 @@ export class CartService {
         buy = items.find((e) => e.id == this.cart[i].id);
         items[index] = {
           ...this.cart[i],
-          quantity: this.cart[i].quantity + buy!.quantity,
+          quantity: this.cart[i].quantity ?? 0 + ( buy ? buy.quantity ?? 0 : 0 )
         };
       } else {
         items.push(this.cart[i]);
