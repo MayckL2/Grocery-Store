@@ -1,0 +1,5 @@
+@for (button of buttons; track $index) {
+    <!-- <button app-payment-button [data]="button" (select)="checkButton($event)"></button> -->
+    <button pButton [pTooltip]="button.tip" tooltipPosition="top" hideDelay="300" size="large"
+    class="capitalize" (click)="checkButton(button.label)">{{ button.label }}</button>
+}

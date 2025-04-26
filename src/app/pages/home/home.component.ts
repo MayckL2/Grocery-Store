@@ -1,21 +1,24 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
-import { ProductComponent } from '../../components/product/product.component';
 import { SessionCategoryComponent } from '../../components/session-category/session-category.component';
-import { HeaderComponent } from '../../components/header/header.component';
-import { CarouselComponent } from '../../components/carousel/carousel.component';
 import { ApiService } from '../../services/api/api.service';
-import { Subscription } from 'rxjs';
 import { IProduct } from '../../models/IProduct';
+import { Carousel2Component } from "../../components/carousel2/carousel2.component";
+import { RouterModule } from '@angular/router';
+import { CartService } from '../../services/cart/cart.service';
+import { OptionsCategoryComponent } from "../../components/options-category/options-category.component";
+import { UxService } from '../../services/ux/ux.service';
 
 @Component({
+  standalone: true,
   selector: 'app-home',
   imports: [
     CommonModule,
     SessionCategoryComponent,
-    HeaderComponent,
-    CarouselComponent,
-  ],
+    Carousel2Component,
+    RouterModule,
+    OptionsCategoryComponent
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -24,29 +27,20 @@ export class HomeComponent implements OnInit {
   discountProducts: IProduct[] = [];
   // Nova forma de instanciar um service com signal
   observableService = inject(ApiService);
+  cart = inject(CartService);
+  ux = inject(UxService);
 
-  qtdCarrinho$ = this.observableService.obterQuantidadeCarrinho();
-  // Variavel para adiministrar os inscritos no observable
-  // subs = new Subscription();
+  qtdCarrinho$ = this.cart.cart$;
 
   adicionarProduto(produto: IProduct) {
-    this.observableService.adicionarProduto(produto);
+    this.cart.addProduct(produto);
     // console.log(this.qtdCarrinho$);
   }
 
   // Adicionando incrito na variavel
   ngOnInit(): void {
-    this.products = this.observableService.getAll().products;
+    this.products = this.observableService.getAll();
     this.discountProducts = this.observableService.getWithDiscount();
-
-    // const subContador = this.qtdCarrinho$.subscribe((value) => {
-    //   console.log('valor emitido:', value);
-    // });
+    this.ux.scrollToTop();
   }
-
-  // Desinscrevendo todos os inscritos quando o compronente for destruido
-  // ngOnDestroy(): void {
-  //   this.subs.unsubscribe();
-  //   console.log('Observable destruido');
-  // }
 }

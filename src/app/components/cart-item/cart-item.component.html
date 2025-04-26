@@ -1,0 +1,26 @@
+<div class="flex p-4 gap-4 justify-between outline outline-2 outline-green-300 rounded-xl relative h-max">
+    <div class="flex gap-4">
+        <a [routerLink]="['/product/'+ data.id]">
+            <img [src]="data.image" [alt]="data.name" class="w-32 object-contain outline outline-2 outline-green-300 rounded-xl">
+        </a>
+        
+        <div class="flex flex-col">
+            <p class="text-xl font-semibold">{{ data.name }}</p>
+            <span class="text-lg">{{ price | currency }}</span>
+            <span class="text-xs px-4 py-2 rounded-xl bg-green-300 text-green-800 w-fit" *ngIf="data">{{ data.quantity }}x</span>
+            <!-- <span class="text-xs line-through">{{ data.price | currency }}</span> -->
+        </div>
+    </div>
+
+    <div class="flex md:flex-row flex-col justify-end items-end md:mt-0 mt-20 gap-4">
+        <p-button size="small" (click)="removeProduct()">Remove</p-button>
+
+        <!-- <div class="flex gap-2 items-center">
+            <p-button icon="pi pi-minus" [rounded]="true" size="small"/>
+            <span>{{ data.quantity }}</span>
+            <p-button icon="pi pi-plus" [rounded]="true" size="small"/>
+        </div> -->
+    </div>
+
+    <!-- <p-tag severity="info" [value]="data.quantity?.toString()" class="absolute top-4 right-4 "/> -->
+</div>

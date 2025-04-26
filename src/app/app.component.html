@@ -1,4 +1,7 @@
-<main>
+<main >
+  <!-- LOADER -->
+  <app-loading *ngIf="this.loaded == false" message="Loading..."></app-loading>
+
   <div class="fixed z-2 w-full">
     <app-info></app-info>
     <app-header></app-header>
@@ -8,11 +11,5 @@
 
   <router-outlet/>
 
-  <hr>
-  
-  <footer>
-    <a href="#">
-      <!-- <img src="../assets/Freshcart Logo.png" alt="Freshcart logo"> -->
-    </a>
-  </footer>
+  <app-footer></app-footer>
 </main>

@@ -1,6 +1,10 @@
-import { Component, Input, input, OnInit, TemplateRef } from '@angular/core';
-import { IProduct } from '../../models/IProduct';
+import { Component, inject, Input, input, OnInit, TemplateRef } from '@angular/core';
+import { IProduct, productDefault } from '../../models/IProduct';
 import { CommonModule, CurrencyPipe } from '@angular/common';
+import { Router } from '@angular/router';
+import { ApiService } from '../../services/api/api.service';
+import { ProductService } from '../../services/product/product.service';
+import { CartService } from '../../services/cart/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -9,7 +13,8 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
   styleUrl: './product.component.scss',
 })
 export class ProductComponent implements OnInit {
-  @Input() productProp!: IProduct;
+  productProp = input<IProduct>(productDefault);
+  dataProduct: IProduct = productDefault;
   discountPrice: number | undefined;
   // STORE PERMISSIONS FOR SHOWING SOME COMPONENTS
   conditions = {
@@ -17,25 +22,38 @@ export class ProductComponent implements OnInit {
     showNotAvaliable: false,
     showNotDiscount: true
   }
+  service = inject(ApiService);
+  productService = inject(ProductService);
+  cart = inject(CartService);
 
-  // CALCULATE DISCOUNT IN THE PRODUCT
-  calculatePrice(){
-    this.discountPrice = this.productProp.price - ( this.productProp.price * ( this.productProp.discount / 100));
+  constructor(private router: Router) {}
 
-    // console.log(`${this.productProp.price} - ${this.productProp.discount}% = ${this.discountPrice}`);
-    // console.log("desconto do " + this.productProp.name + "= " + this.productProp.discount / 100);
+  // ADJUSTING PRODUCT LINK
+  routingProduct(){
+    this.router.navigate(['/product', this.productProp()?.id]);
+  }
+
+  // ADD ITENS ON CART
+  handleAdd(event: Event){
+    // STOP FATHER COMPONENT EVENT FROM PROPAGATING
+    event.stopPropagation();
+
+    this.cart.addProduct(this.productProp()!);
+
+    console.log(this.cart.getCart().length);
   }
 
   ngOnInit(): void {
     // AVALIABLE IN STOCK?
-    if(this.productProp.inStock == 0) this.conditions.showNotAvaliable = true
+    if(this.productProp()?.inStock == 0) this.conditions.showNotAvaliable = true
   
     // HAS DISCOUNT?
-    if(this.productProp.discount){
-      this.conditions.showDiscount = this.productProp.discount
-      this.calculatePrice()
+    if(this.productProp()?.discount){
+      this.conditions.showDiscount = this.productProp()?.discount ?? 0
+      this.discountPrice = this.productService.calculatePrice(this.productProp()!.price, this.productProp()?.discount)
     } 
 
+    this.dataProduct = this.productProp();
     // console.log(this.productProp.name, this.conditions)
   }
 }

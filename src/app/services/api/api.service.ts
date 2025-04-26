@@ -1,51 +1,46 @@
 import { Injectable } from '@angular/core';
-import { ICompra } from '../../models/compra';
 import { BehaviorSubject } from 'rxjs';
 import { IProduct } from '../../models/IProduct';
 import stock from '../../../../database/stock.json';
+import { ICategory } from '../../models/ICategory';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  private carrinho: ICompra[] = [];
-  // OBSERVABLE
-  private ProdutoAdicionado$ = new BehaviorSubject<number>(0);
+  private products: IProduct[] = [];
+  private categories: ICategory[] = [];
+
+  constructor(){
+    this.fetchApi();
+  }
 
   // FETCH DATA FROM FAKE API
-  fetchApi() {
-    return stock;
+  private fetchApi() {
+    this.products = stock.products;
+    this.categories = stock.categories;
   }
 
   // RETURN ALL PRODUCTS
-  getAll(){
-    return this.fetchApi();
+  getAll() {
+    return this.products;
+  }
+
+  // RETURN ONE PRODUCT
+  getProduct(id: number) {
+    let data: IProduct[] = this.products ?? [];
+    let product: IProduct[] = data.filter((e: IProduct) => e.id == id);
+
+    return product[0];
   }
 
   // RETURN ALL PRODUCT WITH DISCOUNT
-  getWithDiscount(){
-    let all = this.fetchApi();
-    let haveDiscount = all.products.filter(e => e.discount);
-
+  getWithDiscount() {
+    let haveDiscount = this.products?.filter((e) => e.discount);
     return haveDiscount;
   }
 
-  // RETURN CART QUANTITY
-  obterQuantidadeCarrinho() {
-    return this.ProdutoAdicionado$;
-  }
-
-  // ADD PRODUCT IN CART
-  adicionarProduto(produto: IProduct) {
-    const produtoCompra: ICompra = {
-      id: this.carrinho.length + 1,
-      name: produto.name,
-      price: produto.price,
-      inStock: produto.inStock
-    };
-
-    this.carrinho.push(produtoCompra);
-    // SEND THE QUANTITY OF ITENS FOR THE SUBCRIBES
-    this.ProdutoAdicionado$.next(this.carrinho.length);
+  getCategories(){
+    return this.categories;
   }
 }

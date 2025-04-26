@@ -17,6 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "prerender": {
+              "discoverRoutes": false
+            },
             "outputPath": "dist/angular-store",
             "index": "src/index.html",
             "browser": "src/main.ts",
