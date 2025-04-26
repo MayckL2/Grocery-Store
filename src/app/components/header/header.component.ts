@@ -23,7 +23,6 @@ import { Subscription } from 'rxjs';
     FormsModule,
     MatIconModule,
     BadgeModule,
-    AsyncPipe,
     FloatLabelModule,
     RouterModule
   ],

@@ -9,7 +9,7 @@ import { ApiService } from '../../services/api/api.service';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
-export class FooterComponent implements OnInit{
+export class FooterComponent {
   api = inject(ApiService);
   categories = this.api.getCategories();
   servicesOptions = [
@@ -21,6 +21,4 @@ export class FooterComponent implements OnInit{
     "Concellation & Return Policy"
   ]
 
-  ngOnInit(): void {
-  }
 }

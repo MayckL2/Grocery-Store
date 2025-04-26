@@ -4,7 +4,7 @@ import { Button } from 'primeng/button';
 import { ProductService } from '../../services/product/product.service';
 import { ApiService } from '../../services/api/api.service';
 import { RouterModule } from '@angular/router';
-import { BuyDefault, IBuy } from '../../models/IBuy';
+import { IProduct, productDefault } from '../../models/IProduct';
 
 @Component({
   selector: 'app-cart-item',
@@ -13,8 +13,8 @@ import { BuyDefault, IBuy } from '../../models/IBuy';
   styleUrl: './cart-item.component.scss',
 })
 export class CartItemComponent implements OnInit{
-  product = input<IBuy>(BuyDefault);
-  data: IBuy = BuyDefault;
+  product = input<IProduct>(productDefault);
+  data: IProduct = productDefault;
   quantity: number = 0;
   productService = inject(ProductService);
   service = inject(ApiService);
@@ -23,7 +23,6 @@ export class CartItemComponent implements OnInit{
 
   handlePrice(){
     this.price = this.productService.calculatePrice(this.product()!.price, this.product()?.discount, this.product()?.quantity);
-    console.log(this.product()?.discount);
   }
 
   addQuantity(){

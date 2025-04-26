@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { IBuy } from '../../models/IBuy';
 import { BehaviorSubject } from 'rxjs';
 import { IProduct } from '../../models/IProduct';
 import stock from '../../../../database/stock.json';

@@ -7,7 +7,7 @@
         <div class="flex flex-col">
             <p class="text-xl font-semibold">{{ data.name }}</p>
             <span class="text-lg">{{ price | currency }}</span>
-            <span class="text-xs px-4 py-2 rounded-xl bg-green-300 text-green-800 w-fit" *ngIf="product()!.quantity > 1">{{ data.quantity }}x</span>
+            <span class="text-xs px-4 py-2 rounded-xl bg-green-300 text-green-800 w-fit" *ngIf="data">{{ data.quantity }}x</span>
             <!-- <span class="text-xs line-through">{{ data.price | currency }}</span> -->
         </div>
     </div>

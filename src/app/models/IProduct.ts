@@ -11,10 +11,11 @@ export interface IProduct {
 
 export const productDefault: IProduct = {
     id: 0,
-    name: "",
+    name: "default",
     price: 0,
     discount: 0,
     image: "",
     inStock: 0,
-    category: ""
+    category: "",
+    quantity: 0
 }
