@@ -1,6 +1,6 @@
 export interface IAdress {
   cep: number,
-  state: string,
+  city: string,
   neighborhood: string,
   street: string,
   number: number,

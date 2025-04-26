@@ -4,8 +4,6 @@ import { IProduct } from '../../models/IProduct';
 import { Message } from 'primeng/message';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { IAdress } from '../../models/IAdress';
-import { IPayment } from '../../models/ipayment';
-import { IBuy } from '../../models/IBuy';
 
 @Component({
   selector: 'app-form-confirmation',
