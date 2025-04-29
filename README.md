@@ -2,7 +2,7 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
 
-### This project is a ecommerce of a grocery store where the client can see all itens in stock, add on this cart and buy the itens for be delivery in this adress. You can test the functionalities on this link: 
+### This project is a ecommerce of a grocery store where the client can see all itens in stock, add on this cart and buy the itens for be delivery in this adress. You can test the functionalities on this link: https://grocery-store-ecommerce.vercel.app/
 
 ## Development server
 
