@@ -1,4 +1,5 @@
 <section class="flex flex-col gap-4 rounded-xl bg-green-50 p-4 capitalize">
+    <p-message>Products</p-message>
     <div *ngFor="let item of products" class="flex justify-between items-end w-full">
         <div class="flex gap-4">
             <img class="w-38 object-fit" [src]="item.image" [alt]="item.name">
@@ -12,7 +13,8 @@
     </div>
 </section>
 
-<section class="flex justify-between rounded-xl bg-green-50 w-full p-4 capitalize">
+<section class="flex flex-col gap-4 justify-between rounded-xl bg-green-50 w-full p-4 capitalize">
+    <p-message>Adress</p-message>
     <div class="flex flex-col gap-2">
         <div class="flex">
             <p>Street: {{ adress?.street }}, {{ adress?.number }}</p>
@@ -33,14 +35,16 @@
     </div>
 </section>
 
-<section class="flex justify-between rounded-xl bg-green-50 w-full p-4 capitalize">
-    <div class="flex flex-col gap-2">
+<section class="flex flex-col gap-4 justify-between rounded-xl bg-green-50 w-full p-4 capitalize">
+    <p-message>Total</p-message>
+    <div class="flex flex-col items-start gap-2 w-fit">
+        <p>Payment method: </p>
         <p-message severity="info" variant="outlined">{{ paymentMethod }}</p-message>
     </div>
     <div class="flex flex-col justify-end items-end">
-        <p class="text-end">{{ total.products | currency}}</p>
-        <p class="text-end">{{ total.delivery | currency}}</p>
-        <p class="text-end text-green-400">{{ total.discount| currency}}</p>
-        <p class="text-end text-2xl">{{ total.total | currency }} </p>
+        <p class="text-end"><span class="text-sm">Products:</span> {{ total.products | currency}}</p>
+        <p class="text-end"><span class="text-sm">Delivery:</span> {{ total.delivery | currency}}</p>
+        <p class="text-end text-green-400"><span class="text-sm">Discount:</span> {{ total.discount | currency}}</p>
+        <p class="text-end text-3xl"><span class="text-sm">Total:</span> {{ total.total | currency }} </p>
     </div>
 </section>
