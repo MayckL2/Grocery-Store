@@ -11,6 +11,7 @@ import { CartService } from '../../services/cart/cart.service';
 import { UxService } from '../../services/ux/ux.service';
 import { PaymentService } from '../../services/payment/payment.service';
 import { IProduct, productDefault } from '../../models/IProduct';
+import { Message } from 'primeng/message';
 
 interface ICart {
   name: string;
@@ -27,6 +28,7 @@ interface ICart {
     CartItemComponent,
     Tag,
     SectionNavigationComponent,
+    Message
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',

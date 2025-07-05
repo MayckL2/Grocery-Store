@@ -3,7 +3,7 @@
     <div class="grid col-span-2 gap-4 rounded-xl bg-green-50 p-4">
         <app-section-navigation></app-section-navigation>
 
-        <div *ngIf="products?.length; else notProduct" class="grid gap-4">
+        <div *ngIf="products?.length; else notProduct" class="grid gap-4 self-end">
             <app-cart-item *ngFor="let product of products" [product]="product" (removeItem)="remove(product.id)"></app-cart-item>
         </div>
         
@@ -21,9 +21,9 @@
 
         <div class="flex flex-col items-end gap-4">
             <div *ngIf="products?.length" class="grid gap-4 p-4 outline outline-2 outline-green-300 rounded-xl w-full">
-                <p-tag severity="warn" value="Products" />
+                <p-message severity="warn" variant="outlined">Products</p-message>
                 <div class="flex flex-col w-full">
-                    <div class="flex justify-between" *ngFor="let item of prices">
+                    <div class="flex justify-between items-end" *ngFor="let item of prices">
                         <span>{{ item.price | currency }}</span>
                         <span class="text-lg font-semibold">
                             {{ item.name }} 
@@ -32,23 +32,25 @@
                     </div>
                 </div>
 
-                <div class="flex justify-between w-full">
+                <div class="flex justify-between items-end w-full">
                     <span>{{ deliveryValue | currency }}</span>
                     <span class="text-lg font-semibold">Delivery</span>
                 </div>
             </div>
                 
-            <div class="flex gap-2 justify-between items-end w-full p-4 outline outline-2 outline-green-300 rounded-xl">
-                <div class="flex flex-col justify-between gap-2">
-                    <p-tag severity="info" value="Total" />
+            <div class="flex flex-col gap-2 justify-between w-full p-4 outline outline-2 outline-green-300 rounded-xl">
+                <p-message severity="info" variant="outlined">Total</p-message>
+                <div class="flex justify-between items-end gap-2">
                     <span class="text-xl font-semibold">{{ total | currency }}</span>
+                    
+                    <a class="self-end" *ngIf="products?.length; else notProduct2" (click)="handleBuy()" routerLink="/payment" routerLinkActive="active" ariaCurrentWhenActive="page">
+                        <p-button label="Buy"></p-button>
+                    </a>
+
+                    <ng-template #notProduct2>
+                        <p-message>Keep buying</p-message>
+                    </ng-template>
                 </div>
-                
-                <a (click)="handleBuy()" routerLink="/payment" routerLinkActive="active" ariaCurrentWhenActive="page">
-                    <p-button label="Buy">
-                    </p-button>
-                </a>
-                <!-- <p-button label=" Buy " severity="success" /> -->
             </div>
         </div>
 
