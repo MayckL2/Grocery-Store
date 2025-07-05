@@ -63,13 +63,19 @@ export class FormAdressComponent {
     }
 
     this.adress.valueChanges.subscribe((data) => {
-      if(data.cep.length == 8 && (data.city == '' || data.neighborhood == '' || data.street == '')){
-        this.ux.colectAdressByCep(data.cep).subscribe({
-          next: (e) => {
-            this.fillForm(e)
-          }
-        })}
+      this.colectFormData(data)
     });
+  }
+
+
+  colectFormData(data: IAdress){
+    if(String(data.cep).length == 8 && (data.city == '' || data.neighborhood == '' || data.street == '')){
+      this.ux.colectAdressByCep(String(data.cep)).subscribe({
+      next: (e) => {
+        this.fillForm(e)
+      }
+    })
+    }
   }
 
   fillForm(data: any){
@@ -88,7 +94,7 @@ export class FormAdressComponent {
     });
   }
 
-  emitForm() {
+  emitForm() { // outputs form data to enable the 'Next' button
     this.adressData.emit(this.adress.value);
   }
 
