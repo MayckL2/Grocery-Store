@@ -39,6 +39,7 @@
                 <span>{{ quantity }}</span>
                 <p-button icon="pi pi-plus" [rounded]="true" size="small" (click)="addQuantity()"/>
             </div>
+            <p-toast/>
         </div>
 
         <div class="flex gap-2 justify-end" *ngIf="this.inStock">
