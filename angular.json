@@ -29,6 +29,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              "list",
               {
                 "glob": "**/*",
                 "input": "public"
