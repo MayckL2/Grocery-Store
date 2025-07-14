@@ -4,6 +4,17 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ### This project is a ecommerce of a grocery store where the client can see all itens in stock, add on this cart and buy the itens for be delivery in this adress. You can test the functionalities on this link: https://grocery-store-ecommerce.vercel.app/
 
+## Features
+
+- Listing products from a API
+- Adding items to the Cart and guarding them until they are removed or bought
+- Buy items individually or from the cart.
+- Getting adress from CEP using a CEP API
+- Different payment methods (pix, credit card, debit card, voucher card, bank slip)
+- Getting purchase details
+- Draggable carousel to show items and categories
+- Product details
+
 ## Development server
 
 To start a local development server, run:
